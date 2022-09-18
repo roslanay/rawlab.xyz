@@ -1,0 +1,151 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="desktop.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="ABCMaxiRound-Bold-Trial.woff" rel='stylesheet' type='text/css'>
+
+    <title>raw lab</title>
+    <style>
+        @font-face {
+            font-family: ABCMaxiRound-Bold;
+            src: url(ABCMaxiRound-Bold-Trial.otf);
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            /* font-family: 'Work Sans', sans-serif; */
+            line-height: 1;
+        }
+        body{
+            padding: 3vw;
+            background-color: darkgrey;
+        }
+        h1{
+            font-size: 20vw;
+            font-family: 'ABCMaxiRound-Bold', sans-serif;
+        }
+        p{
+            font-size: 10vw;
+            word-spacing: -0.5vw;
+            font-weight: 600;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover{
+            text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+        .raw{
+            display: flex;
+            flex-direction: row;
+        }
+        .r, .a, .w, .l, .b {
+            width: 10vw;
+            height: 10vw;
+            background-color: black;
+            display: inline-block;
+
+        }
+        .r{
+            width: 10vw;
+            height: 10vw;
+            background-color: black;
+            position: relative;
+            border-top-left-radius: 50%;
+        }
+        .r::after{
+            content: url('');
+            width: 6vw;
+            height: 6vw;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: darkgrey;
+            border-top-left-radius: 50%;
+        }
+        .a{
+            width: 10vw;
+            height: 10vw;
+            background-color: black;
+            position: relative;
+            border-top-left-radius: 50%;
+        }
+        .a::after{
+            content: url('');
+            width: 6vw;
+            height: 6vw;
+            position: absolute;
+            bottom: 50%;
+            right: 50%;
+            transform: translate(-50%);
+            background-color: darkgrey;
+            border-radius: 50%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="r"></div>
+    <div class="a"></div>
+    <div class="r"></div>
+
+    <div class="r"></div>
+    <div class="r"></div>
+    <div class="r"></div>
+
+
+   <h1>
+
+raw lab
+    </h1>
+   <p> 
+    is a research-based collective working between the intersection of design and art. By critically and practically engaging with technology, new media and artificial intelligence the duo examines the social effects of our network cultures. 
+    </p>
+    <script>
+        // $('p')
+        // .on('mousemove',function() {
+        //     TweenMax.to(this, 0.5, {'-webkit-text-stroke': '10px', ease: Cubic.easeOut});	
+        // })
+        // .on('scroll', function() {
+        //     TweenMax.to(this, 0.5, {'-webkit-text-stroke': '0px', ease: Cubic.easeOut});	
+        // });
+
+        // $(document).mousemove(function(e) {
+            
+        //     let middlehalf = window.innerHeight / 2;
+        //     if (e.clientY > middlehalf) {
+        //         $('p')
+        //         .on('mousemove',function() {
+        //             TweenMax.to(this, 0.15, {'-webkit-text-stroke': '10px', ease: Cubic.easeOut});	
+        //         })
+        //     } else {
+        //         $('p')
+        //         .on('mousemove', function() {
+        //             TweenMax.to(this, 0.15, {'-webkit-text-stroke': '0px', ease: Cubic.easeOut});	
+        //         });
+        //     }
+        // });
+    </script>
+</body>
+
+</html>
