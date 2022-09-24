@@ -113,10 +113,11 @@ a{
 }
 
 .bodyContainer{
-	width: 100vw;
 	display: block;	
 	z-index: -1;
 	position: absolute;
+	left: 0;
+	top: 0;
 	pointer-events: none;
 }
 
@@ -177,19 +178,15 @@ img{
 
 @media (max-width: 1000px){
 .bodyContainer{
-	width: 100vw;
 	display: block;
 	margin:0;
-	overflow-y: scroll;
 }
 
 }
 
 @media (max-width: 750px){
 .bodyContainer{
-	width: 100vw;
 	display: block;
-	overflow-y: visible;
 	margin:0;
 }
 
