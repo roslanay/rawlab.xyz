@@ -1,0 +1,286 @@
+@font-face {
+  font-family:BusinessHistory-Regular;
+  src: url(fonts/BusinessHistory-Regular.woff);
+}
+
+@font-face {
+  font-family: happy-times-at-the-ikob_italic-webfont;
+  src: url(fonts/happy-times-at-the-ikob_italic-webfont.woff);
+}
+
+@font-face {
+  font-family: 'happy-times-at-the-ikob_italic-webfont';
+  src:  url('happy-times-at-the-ikob_italic-webfont.woff2') format('woff2'),
+        url('happy-times-at-the-ikob_italic-webfont.woff') format('woff');
+}
+
+
+
+h1, h2 {font-family: "Palatino";}
+
+.demo-wrapper { height:100vh; width:100vw;  position:fixed; top:0%; left:0; opacity: 0.8;}
+.heatmap { width:100%; height:100%; overflow-y: visible;}
+
+
+html, body, p, div { margin:0; padding:0; }
+
+
+
+body {
+  max-width:100%;
+  overflow-y: visible;
+  cursor: none;
+  font-family: Palatino;
+
+}
+
+.wrapper { width:100%; /*position:fixed;*/ margin:auto; max-width:100%;  overflow:visible; }
+
+
+a{
+	color: blue;
+	font-style: italic;
+	cursor:pointer;
+	text-decoration: none;
+	font-size: 1em;
+	line-height: 1.2em;
+
+}
+
+
+#projects{
+	float: left;
+	margin-left: 1%;
+	margin-top: 1%;
+	font-family: Palatino;
+}
+
+#about{
+	float: right;
+	margin-right: 1%;
+	margin-top: 1%;
+	font-family: Palatino;
+}
+
+.menu{
+	float: left;
+	width: auto;
+	height: 100%;
+	background-color: transparent;
+	margin-top:4%;
+	display: block !important;
+	font-size:0.5em;
+	font-family: sans-serif;
+
+	/*margin-left:1%;*/
+
+
+}
+.menuTwo{
+	float: left;
+	width: auto;
+	height: 100%;
+	background-color: transparent;
+	margin-top:5%;
+	margin-left: 0.5%;
+	display: block !important;
+	font-size:0.5em;
+	font-family: sans-serif;
+
+	/*margin-left:1%;*/
+}
+
+
+.bodyText{
+	width: 95%;
+	float: right;
+	margin-right: -6%;
+	margin-bottom: 4%;
+	font-family:Palatino; 
+	letter-spacing: 0.02em;
+	line-height: 1.2em;
+	word-spacing: -0.01em;
+
+}
+
+.title{
+	font-size: 0.9em;
+	font-family: Palatino;
+	/*text-decoration: underline;*/
+	margin-bottom: 1%;
+	color: red;
+
+}
+
+.bodyContainer{
+	width: 100vw;
+	display: block;	
+	z-index: -1;
+	position: absolute;
+	pointer-events: none;
+}
+
+
+
+.mySlides {display:none;}
+
+.img{
+	width: 65%;
+	height: 76vh;
+	float: right;
+	margin-right: 20%;
+	margin-top: 1%;
+	/*overflow: hidden;*/
+	background-color: transparent;
+}
+
+img{
+	width: 100%;
+	height: auto;
+	margin-bottom: 1%;
+
+}
+
+.slidesl{
+	background-color: transparent;
+	text-decoration: none;
+	float: right;
+	margin-right: -70%;
+	margin-top: 40%;
+
+}
+.slidesr{
+	background-color: transparent;
+	text-decoration: none;
+	float: right;
+	margin-right: -72%;
+	margin-top: 40%;
+}
+
+.contact{
+	float: right;
+	margin-top: 20%;
+	margin-right: -10%;
+}
+
+.portfolio{
+	width: 100%;
+	height: auto;
+	display: block;
+	z-index: 100;
+}
+
+.projects{
+	float: left;
+	width: 5%;
+}
+
+@media (max-width: 1000px){
+.bodyContainer{
+	width: 100vw;
+	display: block;
+	margin:0;
+	overflow-y: scroll;
+}
+
+}
+
+@media (max-width: 750px){
+.bodyContainer{
+	width: 100vw;
+	display: block;
+	overflow-y: visible;
+	margin:0;
+}
+
+}
+
+/*  */
+@font-face {
+	font-family: ABCMaxiRound-Bold;
+	src: url(ABCMaxiRound-Bold-Trial.otf);
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	/* font-family: 'Work Sans', sans-serif; */
+	line-height: 1;
+}
+body{
+	padding: 3vw;
+	background-color: darkgrey;
+}
+h1{
+	font-size: 20vw;
+	font-family: 'ABCMaxiRound-Bold', sans-serif;
+}
+p{
+	font-size: 10vw;
+	word-spacing: -0.5vw;
+	font-weight: 600;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+a:hover{
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+.raw{
+	display: flex;
+	flex-direction: row;
+}
+.r, .a, .w, .l, .b {
+	width: 10vw;
+	height: 10vw;
+	background-color: black;
+	display: inline-block;
+
+}
+.r{
+	width: 10vw;
+	height: 10vw;
+	background-color: black;
+	position: relative;
+	border-top-left-radius: 50%;
+}
+.r::after{
+	content: url('');
+	width: 6vw;
+	height: 6vw;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: darkgrey;
+	border-top-left-radius: 50%;
+}
+.a{
+	width: 10vw;
+	height: 10vw;
+	background-color: black;
+	position: relative;
+	border-top-left-radius: 50%;
+}
+.a::after{
+	content: url('');
+	width: 6vw;
+	height: 6vw;
+	position: absolute;
+	bottom: 50%;
+	right: 50%;
+	transform: translate(-50%);
+	background-color: darkgrey;
+	border-radius: 50%;
+}
+
+
