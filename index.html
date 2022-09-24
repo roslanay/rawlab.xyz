@@ -11,50 +11,148 @@
 </head>
 
 <body>
-
+  <!-- hero -->
   <div class="wrapper">
 
-    <div class="portfolio">
-
-        <!-- <div class="headers">
-          <a id="projects" href="projects/index.html">show projects</a>
-          <a id="about" href="#">roslana yotova 2019</a>
-        </div> -->
-
+      <!-- raw lab intro -->
       <div class="bodyContainer">                
         <h1>raw lab</h1>
         <p>
           a research-based collective working at the intersection of art and design. In their practice they search for new forms of creative expression. By critically and practically engaging with technology, new media and artificial intelligence the duo examines the social effects of our networked cultures.
         </p>
-      </div>      
+      </div>   
+      
+      <!-- heatmap canvas -->
+      <div class="demo-wrapper"><div id="heatmap" class="heatmap"></div></div>
 
-      <!-- heatmap -->
-      <div class="demo-wrapper"><div class="heatmap"></div></div>
+  </div>
 
+  <!-- projects -->
+  <div class="projects">
+    
+    <div class="single-project">
+      <h2>
+        the supreme generic
+      </h2>
+      <img src="02.png" alt="" style="width: 50vw;">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <img src="02.png" alt="" style="width: 50vw;">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
     </div>
 
+    <div class="single-project">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <img src="01.png" alt="" style="width: 50vw;">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <h2>
+        ground truth
+      </h2>
+    </div>
+
+    <div class="single-project">
+      <h2>
+        now you see me
+      </h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <img src="03.jpg" alt="" style="width: 50vw;">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda esse officiis adipisci a ipsa vel corrupti soluta culpa laborum itaque?</p>
+      <img src="03.jpg" alt="" style="width: 50vw;">
+    </div>
+
+    <div class="single-project">
+      <img src="04.png" alt="" style="width: 50vw;">
+      <h2>
+        Existence & Belonging: Molding Social Clichés
+      </h2>
+    </div>
+
+    
   </div>
 
   <script src="./scripts/canvas.js"></script>
   <script>
+
+    // onload
     window.onload = function() {
       
       
-      var heatmapContainer = document.querySelector('.heatmap');
+    //   var heatmapContainer = document.querySelector('.heatmap');
+      
+    //   if (window.innerWidth < 960) {
+    //     var heatmapInstance = h337.create({
+    //     container: heatmapContainer,
+    //     radius: 30
+    //     });
+    //   } else {
+    //     var heatmapInstance = h337.create({
+    //     container: heatmapContainer,
+    //     radius: 60
+    //     });
+    //   }
+
+    //   heatmapContainer.onmousemove = heatmapContainer.ontouchmove = function(e) {
+    //       // we need preventDefault for the touchmove
+    //       e.preventDefault();
+    //       var x = e.layerX;
+    //       var y = e.layerY;
+    //       if (e.touches) {
+    //         x = e.touches[0].pageX;
+    //         y = e.touches[0].pageY;
+    //       }
+        
+    //       heatmapInstance.addData({ x: x, y: y, value: 1 });
+    //  };
+
+    var heatmapContainer = document.querySelector('.heatmap');
       
       if (window.innerWidth < 960) {
-          // doSomething();
-          var heatmapInstance = h337.create({
-        container: heatmapContainer,
-        radius: 30
-      });
+      
       } else {
         var heatmapInstance = h337.create({
         container: heatmapContainer,
         radius: 60
-      });
+        });
+        heatmapContainer.onmousemove = heatmapContainer.ontouchmove = function(e) {
+          // we need preventDefault for the touchmove
+          e.preventDefault();
+          var x = e.layerX;
+          var y = e.layerY;
+          if (e.touches) {
+            x = e.touches[0].pageX;
+            y = e.touches[0].pageY;
+          }
+        
+          heatmapInstance.addData({ x: x, y: y, value: 1 });
+        };
       }
 
+     
+
+
+    };
+
+    // on resize
+    window.onresize = function() {
+      console.log('resize');
+                 // on resize 
+          
+      var heatmapContainer = document.querySelector('.heatmap');
+      
+      if (window.innerWidth < 960) {
+          // doSomething();
+        var heatmapInstance = h337.create({
+        container: heatmapContainer,
+        radius: 30
+        });
+      } else {
+        var heatmapInstance = h337.create({
+        container: heatmapContainer,
+        radius: 60
+        });
+      }
 
       heatmapContainer.onmousemove = heatmapContainer.ontouchmove = function(e) {
           // we need preventDefault for the touchmove
@@ -67,7 +165,8 @@
           }
         
           heatmapInstance.addData({ x: x, y: y, value: 1 });
-     };
+      };
+
 
     };
   </script>
