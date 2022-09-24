@@ -38,12 +38,23 @@
   <script src="./scripts/canvas.js"></script>
   <script>
     window.onload = function() {
+      
+      
       var heatmapContainer = document.querySelector('.heatmap');
       
-      var heatmapInstance = h337.create({
+      if (window.innerWidth < 960) {
+          // doSomething();
+          var heatmapInstance = h337.create({
+        container: heatmapContainer,
+        radius: 30
+      });
+      } else {
+        var heatmapInstance = h337.create({
         container: heatmapContainer,
         radius: 60
       });
+      }
+
 
       heatmapContainer.onmousemove = heatmapContainer.ontouchmove = function(e) {
           // we need preventDefault for the touchmove
