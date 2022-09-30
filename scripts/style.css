@@ -26,7 +26,7 @@ body {
 
 
 .wrapper { width:100%; margin:auto; max-width:100%;  overflow:visible; }
-.demo-wrapper { height:100vh; width:100vw;  position:fixed; top:0%; left:0; opacity: 0.8;}
+.demo-wrapper { height:100vh; width:100vw; position:fixed; top:0%; left:0; opacity: 0.8;}
 .heatmap { width:100%; height:100%;}
 
 
@@ -55,19 +55,17 @@ body {
 	backdrop-filter: blur(2px);
 }
 .projects p{
-	font-size: 2vw;
+	font-size: 1vw;
 	font-family: monospace;
+	font-weight: 200;
+	/* background-color: #fff; */
+	padding: 2vw;
 }
 .single-project{
 	display: flex;
 	flex-direction: row;
 	width: 100vw;
 	overflow-x: scroll;
-}
-
-.single-project *{
-	width: 40vw;
-	display: inline-block;
 }
 
 body{
@@ -79,7 +77,6 @@ h1{
 }
 p{
 	font-size: 10vw;
-	word-spacing: -0.5vw;
 	font-weight: 600;
 }
 a{
@@ -90,6 +87,30 @@ a{
 h2{
 	font-size: 4vw;
 	display: inline-block;
+	/* background-color: darkgray; */
+	padding: 1vw;
+}
+
+.box {
+	display: flex;
+  }
+
+  .one {
+	flex: 1 1 0;
+	/* background: #6c6d8c45; */
+}
+
+.two {
+	flex: 1 1 0;
+	/* background: #a9a9a9c4; */
+}
+
+.three {
+	flex: 2 1 0;
+}
+
+.even{
+	flex-direction: row-reverse;
 }
 
 
