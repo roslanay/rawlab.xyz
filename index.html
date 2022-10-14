@@ -12,22 +12,37 @@
 
 <body>
   <!-- hero -->
-  <div class="wrapper">
+  <section>
+    <div class="wrapper">
+  
+        <!-- kukis -->
+        <div class="kukis-wrapper">
+          <div class="kukis-inner">
+            <p class="kukis-disclaimer">🍪 This website doesn't use any Kukis. Please reject the Kukis or learn more about our Kuki policy <a target="_blank" href="https://youtu.be/NeUMhKnTDXs">here</a></p>
+            <button class="kukis-reject">Reject the Kukis</button>
+          </div>
+        </div>
+        <div class="kukis-img-wrapper">
+          <img src="kuki.png" alt="kukis">
+        </div>
+        <!-- raw lab intro -->
+        <div class="bodyContainer">                
+          <h1>raw lab</h1>
+          <p>
+            a research-based collective working at the intersection of art and design. In their practice they search for new forms of creative expression. By critically and practically engaging with technology, new media and artificial intelligence the duo examines the social effects of our networked cultures.
+          </p>
+        </div>   
+        
+        <!-- heatmap canvas -->
+        <div class="demo-wrapper"><div id="heatmap" class="heatmap"></div></div>
+  
+    </div>
+  </section>
 
-      <!-- raw lab intro -->
-      <div class="bodyContainer">                
-        <h1>raw lab</h1>
-        <p>
-          a research-based collective working at the intersection of art and design. In their practice they search for new forms of creative expression. By critically and practically engaging with technology, new media and artificial intelligence the duo examines the social effects of our networked cultures.
-        </p>
-      </div>   
-      
-      <!-- heatmap canvas -->
-      <div class="demo-wrapper"><div id="heatmap" class="heatmap"></div></div>
 
-  </div>
 
   <script src="./scripts/canvas.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script>
 
     // onload
@@ -88,20 +103,29 @@
 
 
     };
+    // open kukis
+    // setInterval(function(){ $('.kukis-wrapper').addClass("active")}, 2000);
+    $('.kukis-wrapper').addClass("active");
+    $('.kukis-img-wrapper').addClass("active");
+    // close kukis
+    $( ".kukis-reject" ).click(function() {
+      $('.kukis-wrapper').removeClass("active");
+      $('.kukis-img-wrapper').removeClass("active");
+    });
 
     // on resize
     window.onresize = function() {
       console.log('resize');
-                 // on resize 
-          
+    
+      // on resize       
       var heatmapContainer = document.querySelector('.heatmap');
       
       if (window.innerWidth < 960) {
           // doSomething();
-        var heatmapInstance = h337.create({
-        container: heatmapContainer,
-        radius: 30
-        });
+        // var heatmapInstance = h337.create({
+        // container: heatmapContainer,
+        // radius: 30
+        // });
       } else {
         var heatmapInstance = h337.create({
         container: heatmapContainer,
@@ -123,7 +147,16 @@
       };
 
 
+
     };
+
+    // window.onload = function() {
+    //     console.log("test")
+    //     setInterval(function(){ 
+    //       $('.kukis-wrapper').addClass("active")
+    //     }, 2000);
+
+    // }
   </script>
 
 </body>

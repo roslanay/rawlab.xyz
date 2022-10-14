@@ -1,3 +1,6 @@
+html{
+	scroll-behavior: smooth;
+}
 *{
 	margin: 0;
 	padding: 0;
@@ -24,7 +27,9 @@ body {
 
 }
 
-
+img{
+	max-width: 100%;
+}
 .wrapper { width:100%; margin:auto; max-width:100%;  overflow:visible; }
 .demo-wrapper { height:100vh; width:100vw; position:fixed; top:0%; left:0; opacity: 0.8;}
 .heatmap { width:100%; height:100%;}
@@ -80,9 +85,9 @@ p{
 	font-weight: 600;
 }
 a{
-	text-decoration: none;
+	/* text-decoration: none;
 	font-size: 3vw;
-	color: red;
+	color: red; */
 }
 h2{
 	font-size: 4vw;
@@ -114,5 +119,114 @@ h2{
 }
 
 
+.kukis-wrapper{
+	width: 70vw;
+	display: flex;
+	align-items: flex-end;
+	position: fixed;
+	left: 50%;
+	bottom: -100%;
+	z-index: 3;
+	transition: all 1s ease-in-out;
+	cursor:default;
+	transform: translateX(-50%);
+}
+.kukis-img-wrapper{
+	width: auto;
+	display: flex;
+	align-items: flex-end;
+	position: fixed;
+	right: 0;
+	bottom: -100%;
+	z-index: 2;
+	transition: all 1s ease-in-out;
+	cursor:default;
+	pointer-events: none;
+}
 
 
+
+.kukis-wrapper.active{
+	bottom: 0;
+}
+.kukis-img-wrapper.active{
+	bottom: 0;
+}
+
+
+.kukis-reject{
+	background-color: blue;
+	border-radius: 100%;
+	padding: 1vw 1.5vw;
+	font-size: 1vw;
+	font-weight: bold;
+	color:white;
+	border-color: transparent;
+	cursor: pointer;
+	transform: scale(1);
+	transition: all .4s ease-in-out;
+}
+
+.kukis-reject:hover{
+	transform: scale(1.2);
+}
+
+.kukis-disclaimer{
+	font-size: 1vw;
+	padding-right: 2vw;
+}
+
+.kukis-disclaimer a{
+	font-size: 1vw;
+	color: blue;
+	/* padding-right: 2vw; */
+}
+
+.kukis-inner{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	background: red;
+	padding: 1vw 2vw;
+}
+
+@media only screen and (max-width: 1023px) {
+	.kukis-wrapper{
+		display: block;
+		width: 100vw;
+		top: -100%;
+		left: 0;
+		transform: translateX(0);
+	}
+	.kukis-wrapper.active{
+		top: 0;
+	}
+	.kukis-disclaimer{
+		font-size: 6vw;
+		padding-bottom: 2vw;
+		padding-right: 0;
+	}
+	.kukis-inner{
+		flex-direction: column;
+		padding: 2vw 3vw;
+	}
+	.kukis-reject{
+		padding: 3vw;
+		margin: 2vw auto;
+	}
+	.kukis-reject{
+		font-size: 4vw;
+	}
+	.kukis-disclaimer a{
+		font-size: 6vw;
+		color: blue;
+		/* padding-right: 2vw; */
+	}
+	/* .kukis-img-wrapper{
+		z-index: 2;
+	} */
+
+
+}
