@@ -38,6 +38,25 @@
   
     </div>
   </section>
+  <!-- contacts -->
+  <section class="section-contacts">
+    <div class="contacts">
+      <div class="members-info">
+        <a href="">rawlab.xyz@gmail.com<a>
+        <a href="">@rawlab.xyz</a>
+      </div>
+      <div class="members-info">
+        <a href="">Radina</a>
+        <a href="">@gradinaa</a>
+        <a href="">+359 88 5355743</a>
+      </div>
+      <div class="members-info">
+        <a href="">Roslana</a>
+        <a href="">@roslanay</a>
+        <a href="">+359 88 5355794</a>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -103,10 +122,15 @@
 
 
     };
+
     // open kukis
-    // setInterval(function(){ $('.kukis-wrapper').addClass("active")}, 2000);
-    $('.kukis-wrapper').addClass("active");
-    $('.kukis-img-wrapper').addClass("active");
+    setTimeout(function (){
+  
+      $('.kukis-wrapper').addClass("active");
+      $('.kukis-img-wrapper').addClass("active");
+            
+    }, 500); 
+
     // close kukis
     $( ".kukis-reject" ).click(function() {
       $('.kukis-wrapper').removeClass("active");

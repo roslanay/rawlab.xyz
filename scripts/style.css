@@ -127,7 +127,7 @@ h2{
 	position: fixed;
 	left: 50%;
 	bottom: -100%;
-	z-index: 3;
+	z-index: 4;
 	transition: all 1s ease-in-out;
 	cursor:default;
 	transform: translateX(-50%);
@@ -137,9 +137,9 @@ h2{
 	display: flex;
 	align-items: flex-end;
 	position: fixed;
-	right: 0;
-	bottom: -100%;
-	z-index: 2;
+	right: -100%;
+	bottom:0;
+	z-index: 3;
 	transition: all 1s ease-in-out;
 	cursor:default;
 	pointer-events: none;
@@ -151,7 +151,7 @@ h2{
 	bottom: 0;
 }
 .kukis-img-wrapper.active{
-	bottom: 0;
+	right: 0;
 }
 
 
@@ -193,6 +193,36 @@ h2{
 	padding: 1vw 2vw;
 }
 
+.section-contacts{
+	min-height: 100vh;
+	background-image: url("../bg.jpg");
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 2;
+	cursor: default;
+}
+.contacts{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	color: yellow;
+	font-size: 1.5vw;
+	padding: 2vw 5vw;
+}
+.members-info{
+	/* z-index: 2; */
+	/* color: yellow; */
+}
+.members-info *{
+	color: yellow;
+	font-weight: bold;
+	display: block;
+	font-size: 1.5vw;
+	margin: 1vw 0;
+	/* text-shadow: 0 0 10px blue; */
+}
 @media only screen and (max-width: 1023px) {
 	.kukis-wrapper{
 		display: block;
@@ -227,6 +257,18 @@ h2{
 	}
 	.kukis-img-wrapper{
 		max-height: 60vh;
+		right: 0;
+		bottom: -100%;
+	}
+	.kukis-img-wrapper.active{
+		bottom: 0;
+	}
+	.contacts{
+		flex-direction: column;
+	}
+	.members-info *{
+		font-size: 6vw;
+		margin: 5vw 0;
 	}
 
 
