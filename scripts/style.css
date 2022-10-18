@@ -257,7 +257,7 @@ h2{
 		/* padding-right: 2vw; */
 	}
 	.kukis-img-wrapper{
-		max-height: 40vh;
+		height: 60vh;
 		right: 0;
 		bottom: -100%;
 		z-index: 4;
