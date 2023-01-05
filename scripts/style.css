@@ -62,18 +62,42 @@ img{
 }
 .projects p{
 	font-size: 1vw;
-	font-family: monospace;
 	font-weight: 200;
 	/* background-color: #fff; */
 	padding: 2vw;
 }
-.single-project{
+.project-item{
 	display: flex;
 	flex-direction: row;
 	width: 100vw;
 	overflow-x: scroll;
+	margin: 6vw 0;
 }
-
+.project-item.even{
+	display: flex;
+	flex-direction: row-reverse;
+	width: 100vw;
+	overflow-x: scroll;
+	margin: 1vw 0;
+}
+.media{
+	width: 65%;
+	max-height: 100vh;
+	display: flex;
+	flex-direction: row;
+}
+.media img{
+	max-width: none;
+	cursor: e-resize;
+}
+.text-block{
+	width: 35%;
+}
+.meta{
+	font-size: 0.8vw;
+	padding: 0 2vw;
+	font-weight: 100;
+}
 body{
 	background-color: darkgrey;
 }
@@ -91,10 +115,11 @@ a{
 	color: red; */
 }
 h2{
-	font-size: 4vw;
+	font-size: 1vw;
 	display: inline-block;
-	/* background-color: darkgray; */
-	padding: 1vw;
+	font-weight: 100;
+	padding: 1vw 2vw;
+	text-decoration: underline;
 }
 
 .box {
@@ -274,4 +299,67 @@ h2{
 	}
 
 
+}
+
+
+
+.media{
+    /* background-color: black; */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-iteration-count: infinite;
+	transition: all;
+
+}
+/*  */
+/* The animation code */
+/*  */
+.supr-gen{
+    animation-name: supr-gen;
+    animation-duration: 40s;
+}
+@keyframes supr-gen {
+    0% {background-image: url("../img/supr-gen/01.JPEG");}
+    25% {background-image: url("../img/supr-gen/02.JPEG");}
+    50% {background-image: url("../img/supr-gen/03.JPEG");}
+    75% {background-image: url("../img/supr-gen/04.JPEG");}
+    100% {background-image: url("../img/supr-gen/05.JPEG");}
+}
+
+.now-you-see{
+    /* background-color: black; */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-name: now-you-see;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+
+}
+/*  */
+/* The animation code */
+/*  */
+@keyframes now-you-see {
+    0% {background-image: url("../img/now-you-see/01.jpg");}
+    100% {background-image: url("../img/now-you-see/02.jpg");}
+}
+
+.id-20{
+    /* background-color: black; */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-name: id-20;
+    animation-duration: 40s;
+    animation-iteration-count: infinite;
+
+}
+/*  */
+/* The animation code */
+/*  */
+@keyframes id-20 {
+    0% {background-image: url("../img/id-20/01.png");}
+    50% {background-image: url("../img/id-20/02.png");}
+	100% {background-image: url("../img/id-20/03.png");}
 }
