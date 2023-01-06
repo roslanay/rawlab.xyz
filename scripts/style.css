@@ -253,7 +253,7 @@ h2{
 
 @media only screen and (max-width: 1023px) {
 	.kukis-wrapper{
-		display: block;
+		display: none;
 		width: 100vw;
 		top: -100%;
 		left: 0;
@@ -262,6 +262,7 @@ h2{
 	}
 	.kukis-wrapper.active{
 		top: 0;
+		display: block;
 	}
 	.kukis-disclaimer{
 		font-size: 6vw;
@@ -318,6 +319,11 @@ h2{
 	position: relative;
 	z-index: 2;
 	cursor: default;
+}
+@media screen and (max-width: 860px) {
+	.section-contacts{
+		min-height: 40vh;
+	}
 }
 .contacts{
 	display: flex;
