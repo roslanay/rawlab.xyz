@@ -24,6 +24,10 @@ body {
   overflow-y: visible;
   cursor: none;
   font-family: Palatino;
+  display: flex;
+flex-direction: column;
+background-color: darkgrey;
+
 
 }
 
@@ -58,7 +62,8 @@ img{
 	position:relative; 
 	z-index: 2;
 	cursor: auto;
-	backdrop-filter: blur(2px);
+	/* backdrop-filter: blur(2px); */
+	/* backdrop-filter: blur(100px); */
 }
 .projects p{
 	font-size: 1vw;
@@ -98,9 +103,7 @@ img{
 	padding: 0 2vw;
 	font-weight: 100;
 }
-body{
-	background-color: darkgrey;
-}
+
 h1{
 	font-size: 20vw;
 	font-family: 'ABCMaxiRound-Bold', sans-serif;
@@ -109,11 +112,7 @@ p{
 	font-size: 10vw;
 	font-weight: 600;
 }
-a{
-	/* text-decoration: none;
-	font-size: 3vw;
-	color: red; */
-}
+
 h2{
 	font-size: 1vw;
 	display: inline-block;
@@ -133,7 +132,6 @@ h2{
 
 .two {
 	flex: 1 1 0;
-	/* background: #a9a9a9c4; */
 }
 
 .three {
