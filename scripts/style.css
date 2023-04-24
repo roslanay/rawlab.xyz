@@ -87,7 +87,7 @@ img{
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	padding: 10vw 2vw;
+	padding: 5vw 2vw;
 	/* box-shadow: inset 0 3vw 1000px #9aff00; */
 }
 
@@ -97,12 +97,12 @@ img{
 
 @media screen and (max-width: 860px) {
 	.project-item{
-		flex-direction: column;
-		padding: 10vw 5vw;
+		flex-direction: column-reverse;
+		padding: 5vw;
 		/* box-shadow: inset 0 0vw 300px #9aff00; */
 	}
 	.project-item.even{
-		flex-direction: column;
+		flex-direction: column-reverse;
 	}
 	
 }
@@ -125,7 +125,7 @@ img{
 }
 @media screen and (max-width: 860px) {
 	.meta{
-		font-size: 2vw;
+		font-size: 12px;
 		padding-bottom: 2vw;
 	}	
 }
