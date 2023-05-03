@@ -55,7 +55,7 @@ img{
 	position: relative;
 	left: 0;
 	top: 0;
-	padding-bottom: 8vw;
+	padding: 0vw 2vw 5vw 2vw;
 }
 @media screen and (max-width: 860px) {
 	.bodyContainer{
@@ -79,7 +79,7 @@ img{
 }
 @media screen and (max-width: 860px) {
 	.projects p{
-		font-size: 3vw;
+		font-size: 1.4em;
 	}	
 }
 
@@ -125,7 +125,7 @@ img{
 }
 @media screen and (max-width: 860px) {
 	.meta{
-		font-size: 12px;
+		font-size: 1em;
 		padding-bottom: 2vw;
 	}	
 }
@@ -161,7 +161,7 @@ h2{
 }
 @media screen and (max-width: 860px) {
 	h2{
-		font-size: 3vw;
+		font-size: 1.4em;
 		padding-bottom: 3vw;
 	}	
 }
@@ -357,7 +357,7 @@ h2{
 		justify-content: space-between;
 	}
 	.members-info *{
-		font-size: 3vw;
+		font-size: 1.7em;
 		padding: 1vw 0;
 		font-weight: normal;
 	}
@@ -416,3 +416,25 @@ h2{
 /* SWIPER END */
 /*  */
 /*  */
+
+.swiper-pagination-bullet{
+	background: lightgrey;
+	opacity: 1;
+	border-radius: 0;
+	width: 50px;
+    height: 2px;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+	background-color: white;
+	height: 4px;
+}
+
+@media screen and (max-width: 860px) {
+	.swiper-pagination-bullet{
+		width: 15px;
+		height: 1px;
+	}
+	.swiper-pagination-bullet.swiper-pagination-bullet-active{
+		height: 2px;
+	}
+}

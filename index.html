@@ -87,6 +87,7 @@
 
       </div>
     </div> -->
+
     <!-- 02 -->
     <div class="project-item even">
       <div class="text-block">
@@ -122,9 +123,9 @@
             <div class="swiper-slide"><img src="img/dec-amb/10.jpg" alt=""></div>
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
+          <div class="swiper-counter"></div>
+
         </div>
 
       </div>
@@ -160,14 +161,13 @@
             <div class="swiper-slide"><img src="img/supr-gen/08.jpg" alt=""></div>
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
+
         </div>
 
       </div>
     </div>
-     <!-- 04 -->
+    <!-- 04 -->
      <div class="project-item even">
       <div class="text-block">
         <h2>Now You See Me:
@@ -196,15 +196,14 @@
             <div class="swiper-slide"><img src="img/now-you-see/04.jpg" alt=""></div>
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
+         
         </div>
 
       </div>
 
     </div>
-     <!-- 05 -->
+    <!-- 05 -->
      <div class="project-item">
       <div class="text-block">
         <h2>Identity 2.0</h2>
@@ -232,15 +231,14 @@
             <div class="swiper-slide"><img src="img/id-20/03.png" alt=""></div> -->
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
+
         </div>
 
       </div>
     </div>
     <!-- 06 -->
-     <div class="project-item even">
+    <!-- <div class="project-item even">
       <div class="text-block">
         <h2>Physicality of Memories</h2>
         <h3 class="meta">
@@ -262,18 +260,15 @@
             </div>
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
+
         </div>
 
       </div>
 
-    </div>
-     
-    
-     <!-- 05 -->
-     <div class="project-item">
+    </div> -->
+    <!-- 05 -->
+     <div class="project-item even">
       <div class="text-block">
         <h2>Ground Truth</h2>
         <h3 class="meta">
@@ -299,9 +294,8 @@
             <div class="swiper-slide"><img src="img/ground-trt/05.JPG" alt=""></div>
           </div>
 
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <!-- <div class="swiper-pagination"></div> -->
+          <div class="swiper-pagination"></div>
+          
         </div>
 
       </div>
@@ -320,12 +314,12 @@
       </div>
       <div class="members-info">
         <a target="_blank" href="https://radinayotova.eu/">Radina</a>
-        <a target="_blank" href="https://www.instagram.com/gradinaaa/">@gradinaaa</a>
+        <!-- <a target="_blank" href="https://www.instagram.com/gradinaaa/">@gradinaaa</a> -->
         <a href="tel:+359885355743">+359 88 5355743</a>
       </div>
       <div class="members-info">
         <a href="#">Roslana</a>
-        <a target="_blank" href="https://www.instagram.com/roslanay/">@roslanay</a>
+        <!-- <a target="_blank" href="https://www.instagram.com/roslanay/">@roslanay</a> -->
         <a href="tel:+359885355794">+359 88 5355794</a>
       </div>
     </div>
@@ -417,7 +411,8 @@
     var swiper = new Swiper(".mySwiper", {
         pagination: {
           el: ".swiper-pagination",
-          type: "progressbar",
+          // type: "progressbar",
+          clickable: true,
         },
         navigation: {
           nextEl: ".swiper-button-next",
