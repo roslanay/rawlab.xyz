@@ -438,3 +438,12 @@ h2{
 		height: 2px;
 	}
 }
+::-moz-selection { /* Code for Firefox */
+	color: red;
+	background: white;
+  }
+  
+  ::selection {
+	color: red;
+	background: white;
+  }
