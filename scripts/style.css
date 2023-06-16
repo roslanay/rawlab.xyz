@@ -72,7 +72,7 @@ img{
 }
 
 .projects p{
-	font-size: 1vw !important;
+	font-size: 1vw;
 	font-weight: 200;
 	word-spacing: 0.8px;
 	line-height: 1.3;
@@ -141,7 +141,7 @@ h1{
 }
 
 p{
-	font-size: 6vw !important;
+	font-size: 6vw;
 	font-weight: 600;
 }
 @media screen and (max-width: 860px) {
@@ -237,7 +237,7 @@ h2{
 }
 
 .kukis-disclaimer{
-	font-size: 1vw !important;
+	font-size: 1vw;
 	padding-right: 2vw;
 }
 
