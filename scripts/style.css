@@ -237,7 +237,7 @@ h2{
 }
 
 .kukis-disclaimer{
-	font-size: 1vw;
+	font-size: 1vw !important;
 	padding-right: 2vw;
 }
 
