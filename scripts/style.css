@@ -72,7 +72,7 @@ img{
 }
 
 .projects p{
-	font-size: 1vw;
+	font-size: 1vw !important;
 	font-weight: 200;
 	word-spacing: 0.8px;
 	line-height: 1.3;
