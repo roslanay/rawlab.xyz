@@ -15,7 +15,8 @@ body {
 	font-family: Palatino;
 	display: flex;
 	flex-direction: column;
-	background-color: darkgrey;
+	/* background-color: darkgrey; */
+	background: #fff;
 }
 
 img{
@@ -133,6 +134,8 @@ img{
 h1{
 	font-size: 20vw;
 	font-family: 'ABCMaxiRound-Bold', sans-serif;
+	line-height: 0.8;
+	/* color: blue; */
 }
 @media screen and (max-width: 860px) {
 	h1{
@@ -143,6 +146,9 @@ h1{
 p{
 	font-size: 3vw;
 	font-weight: 600;
+	word-spacing: -3px;
+	line-height: 1.1;
+	/* color: blue; */
 }
 @media screen and (max-width: 860px) {
 	p{
@@ -458,3 +464,5 @@ h2{
   .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
 	background: lightgrey;
   }
+
+  
