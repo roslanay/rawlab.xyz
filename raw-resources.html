@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Raw Resources</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/raw-resources-01.png" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/raw-resources-02.png" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/raw-resources-03.png" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/raw-resources-04.png" alt="Girl in a jacket"></div>					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Raw Resources<br> <span style="font-weight: 400;">installation, found objects</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						Walking by the Black Sea coast we stumbled upon what at first appeared to be a pile of rocks. However, a closer look revealed that these were remnants of construction materials that only mimic organic forms. As these man-made structures erode and corrode, their constituent elements embark on a transformative journey, shedding their artificial shapes and blending back into the natural landscape. They surrender to the forces of nature, echoing the raw materials from which they once emerged. This cyclical journey, where the boundaries between artificial and natural begin to blur, challenges our notions of permanence and decay in our built surroundings.											
+					</span>
+					
+				</p>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented as part of</span> 
+					<span class="proj-type">Sofia Art Week Campo Verità</span> 
+					<span class="proj-expo">BG</span>
+					<span class="proj-year">2024</span>
+				</a>			
+				<p class="block-para">
+					<span class="proj-title">location</span> 
+					<span class="proj-title">Gallery +359</span> 
+					<span class="proj-expo">Sofia</span>
+				</a>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>
