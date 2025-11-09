@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SaveNet | Roslana Yotova</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/safenet-00.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"> 
+							<video width="100%" height="100%" controls>
+								<source src="projects/safenet-video-02.mp4" type="video/mp4">
+								<!-- <source src="projects/groundtruth-00-video.mp4" type="video/ogg"> -->
+								Your browser does not support the video tag.
+							</video>
+						</div>
+						<div class="swiper-slide"><img src="projects/safenet-01.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-03.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-04.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-05.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-06.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-07.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-08.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-09.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/safenet-10.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"> 
+							<video width="100%" height="100%" controls>
+								<source src="projects/safenet-video-01.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">SaveNet<br> <span style="font-weight: 400;">video, speculative design, VPN ban</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						SaveNet is a spoof advertisement for a fictional browser extension that allows its users to experience what it could be like to navigate the Internet as a Russian citizen in the future, after the implementation of the VPN ban. Based on personal parameters, the software plug-in censors unwanted imagery and keeps it literally under lock and key. According to Sophia de Jong and Rossi Yotova, the question remains open as to who benefits more from the impending censorship of online activity: the state, the merchant or the consumer.
+					</span>
+					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://www.kabk.nl/en/projects/graphic-design-x-amnesty-international" target="_blank" class="block-link">
+					<span class="proj-title">comissioned by</span> 
+					<span class="proj-type">Amnesty International</span> 
+					<span class="proj-expo">NL</span>
+					<span class="proj-year">2017</span>
+				</a>
+				<!-- Project -->
+				<p class="">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Theater Amsterdam</span> 
+					<span class="proj-expo">Amsterdam</span>
+					<span class="proj-year"></span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">collaborators</span> 
+					<span class="proj-type">Sophia De Jong<br></span> 
+					<span class="proj-expo">AR/NL</span>
+					<span class="proj-year"></span>
+				</p>
+				
+				
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Space Junky | Roslana Yotova</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"> 
+							<video width="100%" height="100%" controls>
+								<source src="projects/space-junky-video.mp4" type="video/mp4">
+								<!-- <source src="projects/groundtruth-00-video.mp4" type="video/ogg"> -->
+								Your browser does not support the video tag.
+							</video>
+						</div>				
+						<div class="swiper-slide"><img src="projects/space-junky-01.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/space-junky-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/space-junky-03.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/space-junky-04.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/space-junky-05.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/space-junky-06.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/space-junky-07.jpg" alt="Girl in a jacket"></div>
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Space Junky<br> <span style="font-weight: 400;">video game, collected trash, 3D scans</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						The protagonist is an astronaut, who is forced to collect the trash in space, in order to survive the hunger caused by the financial cuts, made in regard to the International Space Station. The game is meant as a comment on the unpleasant condition which we-humans have created in outer space. The trash is a collection of my own. I have made 3D scans of waste I have found lying around the academy for a period of one week. The goal of the game is to collect as much props as possible and return to the spaceship before the timer runs out.				
+					</span>
+					
+				</p>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Stroom</span> 
+					<span class="proj-expo">The Hague, NL</span>
+					<span class="proj-year">2017</span>
+				</a>
+				
+				
+				
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

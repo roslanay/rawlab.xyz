@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Choreographies of relativity | Roslana Yotova</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-00.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-01.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-02.jpg" alt="Girl in a jacket"></div>					
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-04.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-05.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-06.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-07.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/choreographies-reltivity-08.jpg" alt="Girl in a jacket"></div>
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Choreographies of relativity<br> <span style="font-weight: 400;">peformance, urban space</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						My project began with an exploration of proxemics, the study of spatial relationships in body language, and how we physically position ourselves in relation to others.
+						<br>
+						I looked into notational systems for describing spatial relationships that employ biometrics to categorise and describe the ways we use our bodies to navigate space in relation to others.
+						<br>
+						Naturally, I came upon “The Architect's Data”. A resource providing insights into spatial requirements for building design and site planning. 
+						<br>
+						I was captivated by the subtle movements of the figures within these architectural diagrams. They illustrate societal norms and expectations, influencing our embodiment and interaction with our surroundings. My goal is to challenge our understanding of space, movement, and interaction within the built environment.	
+					</span>
+					
+				</p>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">performed</span> 
+					<span class="proj-type">City Center</span> 
+					<span class="proj-expo">The Hague, NL</span>
+					<span class="proj-year">2019</span>
+				</a>
+				
+				
+				
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

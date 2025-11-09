@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Ground Truth | Roslana Yotova</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/groundtruth-01.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-00.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-03.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"> 
+							<video width="100%" height="100%" controls>
+								<source src="projects/groundtruth-video.mp4" type="video/mp4">
+								<!-- <source src="projects/groundtruth-00-video.mp4" type="video/ogg"> -->
+								Your browser does not support the video tag.
+							</video>
+						</div>						
+						<div class="swiper-slide"><img src="projects/groundtruth-04.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-05.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-06.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-07.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-08.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-09.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-10.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-11.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/groundtruth-12.jpg" alt="Girl in a jacket"></div>
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Ground Truth<br> <span style="font-weight: 400;">interactive installation, performative camouflage</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						Complex human activities can be characterised as compositions of simpler actions. A person is a "set of informative skeletal joints" that "present a continuous evolution of spatial configurations". Ground Truth is a speculative study in computer vision and an attempt to challenge the current notion of "human", adopted by many developers. Training convolutional neural networks in detecting human activity and classifying human instances, their traits, and behaviour patterns, receives sustained attention nowadays, mainly by military forces and private corporations. Behaviour templates are projected on individuals and crowds, with the main goal of recognising patterns of interactions, anomalous events, and deviant actions. By building a vocabulary of activities, machine learning datasets come to represent clichés of social constructs and abstract our personal experiences into list of annotated data. This has the potential to enforces conformity to a single prevailing mode and ideology of power. 
+						<br>
+						Ground Truth is a collection of camouflage techniques meant to render individuals invisible in plain sight. More precisely, an exploration of mechanisms for escaping the algorithmic uniforms we involuntary acquire. Based on military and natural camouflage, the series of movements proposes alternative modes of social presence and interactions, meant as performative tools for masking visibility in order to confront such predictive technologies.					
+					</span>
+					
+				</p>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Graduation Show, Royal Academy of Art</span> 
+					<span class="proj-expo">The Hague, NL</span>
+					<span class="proj-year">2019</span>
+				</a>
+				
+				
+				
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

@@ -1,0 +1,306 @@
+@font-face {
+    font-family: BusinessHistory-Regular;
+    src: url(fonts/Business-History/BusinessHistory-Regular.woff);
+}
+
+@font-face {
+  font-family:"VG5000-Regular";
+  src: url("../fonts/VG5000-Regular.woff");
+}
+
+body{
+  overflow-x:hidden;
+}
+
+img{
+  z-index: 300;
+}
+/*img:hover{
+  width: 50%;
+  z-index: 301;
+  box-shadow: 80px 0 400px 400px #b6abc6; 
+  margin-top:0;
+    margin-right:auto;
+    margin-bottom:0;
+    margin-left:auto;
+
+}*/
+
+.video{
+  z-index: 20;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px transparent; 
+    border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: transparent; 
+    border-radius: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: transparent; 
+}
+
+/* ************************************************ WORD GRID START ************************************************ */
+.square-grid {
+  width: 100%;
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: wrap;  
+  text-align: justify;
+  background-color: white;
+
+}
+.square-grid__cell {
+  background-color: white;  
+  overflow-x: hidden;
+  position: relative;
+/*  border-width:0.01vw;  
+    border-style:solid;*/
+    box-shadow: 1px 0  1px 1px #b6abc6;
+    margin-left: 0.5%;
+    margin-top: 0.5%;
+    margin-left: 1%;
+}
+.square-grid__cell:hover {
+  background-color: yellow;
+/*  background-color: #ffff00;*/
+}
+
+.square-grid__content {
+ /* left: 0;*/
+  font-family: VG5000-Regular;
+  position: absolute;
+  font-size:0.8vw;
+  margin-right:1vw;
+  margin-left:1%;
+    left: 0;
+  position: absolute;
+  top: 0;
+  font-size:1vw;
+  margin-right:1vw;
+  margin-left:1vw;
+  color: transparent;
+}
+.square-grid__content:hover {
+
+/*  color: white;
+  background-color: yellow;*/
+/*  background-color: #ffff00;*/
+}
+.square-grid__cell:after {
+  content: '';
+  display: inline-block;
+  padding-bottom: 100%;
+}
+.square-grid__cell--7 {
+  flex-basis: 30%;
+}
+/* ************************************************ WORD LINKS START ************************************************ */
+.wordLink{
+  color:black/*#8080ff*/;
+  font-size: 1.5vw;
+  background-color: #ffff00 /*#fbff44*/;
+  cursor: none;
+  font-family: VG5000-Regular;
+}
+.wordLink:hover{
+  color: white;
+  background-color: black;
+  font-size: 1.5vw;
+}
+  
+/*.draggable { width: 20%; height: auto; float: right;}
+*/
+/* ************************************************ HEADERS ************************************************ */
+.headers{width: 100%; height: auto; margin-top: 5%; margin-left: 8%; z-index: 14;}
+h1{font-size: 3vw; font-family: VG5000-Regular; color: #ff7200; word-spacing: 0.15vw; z-index: 14; height:auto;}
+.header1{width:100%; height: auto; margin-top: 0%; margin-left: 3%; margin-right: 1%; float: left; z-index: 14; /*background-color: red;*/}
+h2{ width: 100%; font-size: 4.5vw; font-family: VG5000-Regular; color: #ff7200; /*word-spacing: 0.15vw;*/ float: right; margin-right: 1%; margin-top: 0vw; text-align: right;z-index: 14;}
+.header2{ height: auto; margin-top:-12.5%;  margin-right: 12%; float: right; z-index: 1; text-align: right;}
+h3{font-size: 0.8vw; font-family: VG5000-Regular; color: #b6abc6; word-spacing: 0.15vw; /*box-shadow: 8px 0 10px 10px #b6abc6;*/ height:auto;}
+.header3{width:100%; height: auto; margin-top: 0%; margin-left: 1%; margin-right: 1%; float: left; z-index: 14;}
+
+.headersAbstract{width: 40%; height: auto; margin-left: 0%; z-index: 14;float: right;}
+h6{font-size: 5vw; font-family: VG5000-Regular; color: white; word-spacing: 0.15vw; z-index: 14; height:auto; -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #ff7200; margin-top: 50%; margin-left: 0%;   }
+h4{font-size: 3vw; font-family: VG5000-Regular; color: white; word-spacing: 0.15vw; z-index: 14; height:auto;}
+.header4{width:20%; height: auto; margin-top: 0%; margin-left: 5%; margin-right: 1%; float: left; z-index: 14; /*background-color: red;*/}
+h5{ width: 100%; font-size: 4.5vw; font-family: VG5000-Regular; color: white; /*word-spacing: 0.15vw;*/ float: right; margin-right: 0%; text-align: right;z-index: 14;}
+.header5{ height: auto; margin-top:-10%;  margin-right: 5%; float: right; z-index: 1; text-align: right;}
+
+
+/* ************************************************ BODY TEXT ************************************************ */
+.draggable_text{height: auto; width: 90%; position: relative; z-index: 14; margin-top: -1%; margin-left: 8%; float:right; margin-bottom: -1%;}
+.paragraph{margin-left:1%; text-align: justify; text-indent: 2.7vw; font-size: 1.3vw; font-family: VG5000-Regular; color: #ff7200 ; word-spacing: 0vw; /*letter-spacing: 0.01vw;*/ margin-right: 6%; line-height: 150%; word-break: keep-all; background-color: transparent;}
+.abstract{
+    width: 90%; margin-left:0; text-align: justify; text-indent: 3.7vw; font-size: 1.5vw; font-family: VG5000-Regular;  word-spacing: 0vw; color: #ff7200; /*letter-spacing: 0.01vw;*/ margin-top: 8%; margin-bottom:5%; margin-right: 2%; line-height: 150%; word-break: keep-all; float: right;}
+.colophon{margin-left:1%; text-align: justify; font-size: 0.8vw; font-family: VG5000-Regular; color: #b6abc6; word-spacing: 0vw; /*letter-spacing: 0.01vw;*/ margin-right: 2%; line-height: 150%; word-break: keep-all; background-color: transparent;}
+.containerColophon{height: auto; width: 90%; position: relative; z-index: 0; margin-top: 0%; margin-left: 8%; margin-right: 4%;}
+
+/*#b{ margin-top: 50%; margin-left: 40%;}
+#c{ margin-top: 100%; margin-left: 40%;}
+#d{ margin-top: 150%; margin-left: 50%;}*/
+
+.highlighted {
+  background-color: black;
+  color: white;
+}
+
+
+
+
+/* ************************************************ WEBPAGE ************************************************ */
+#webpage{
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+/*  overflow-y: scroll;*/
+  margin-top: 0%;
+  /*margin-left: 0.5%;
+  margin-right: 0.5%;*/
+  margin-bottom: 0%;
+  display: inline-block;
+  box-shadow: 8px 0  80px 80px #b6abc6 /*#050dff*/; 
+}
+
+/* ************************************************ CONTAINER STYLES START ************************************************ */
+#container1 {
+width:50%; 
+height: auto; 
+margin-top: 1%; 
+margin-right:0%; 
+float:right; 
+display:block; 
+z-index:3; 
+display: block;
+}
+#container2 {
+width: 40%; 
+height:auto; 
+margin-top: 0%; 
+margin-left: 6%; 
+/* position: absolute;  */
+display: inline-block; 
+float: left; 
+overflow-x:scroll; 
+overflow-y:scroll; 
+box-shadow: 10px 0  100px 80px #b6abc6 /*#050dff*/; 
+z-index:1;
+background-color: #b6abc6;
+padding-left: 3.5%;
+}
+
+#container3 {
+ width: 4%; 
+ height: 100%;
+ top:0;
+ margin-top: 0%; 
+ left:0;
+ margin-left: 1%; 
+ box-shadow: 10px 0 100px 10px #ededed;  
+ z-index:1000; 
+ position: fixed;
+ 
+}
+/*#container4{background-color:transparent; width: 30%; height:20%; margin-top: 45%; margin-left: 10%; position: fixed; display: inline-block; float: left; overflow-x:scroll; overflow-y:scroll; box-shadow: 2px 0 20px 10px #b6abc6; z-index: 13;}*/
+/* ************************************************ CONTAINER STYLES END ************************************************ */
+
+/* ************************************************ PAGES STYLES START ************************************************ */
+#page4{ margin-top: 0.5%; background-color: transparent; height: auto; margin-right: 1%; display: inline-block;/*box-shadow: 8px 0 900px 5px #ededed;*/}
+#page3{  margin-top: 0.5%; background-color: transparent; height: auto; margin-right: 1%; display: inline-block;/*box-shadow: 8px 0 900px 5px #ededed;*/}
+#page2{  margin-top: 0.5%; background-color: transparent; height: auto; margin-right: 1%; display: inline-block;/*box-shadow: 8px 0 900px 5px #ededed;*/}
+#page1{  margin-top: 0.5%; background-color: transparent; height: auto; margin-right: 1%; display: inline-block;/*width:50%;*//*box-shadow: 8px 0 900px 5px #ededed;*/}
+#page0{  box-shadow: 10px 0  100px 80px #b6abc6; margin-top: -50%; margin-bottom: 5%; background-color: #b6abc6; height: auto; margin-right: 0; display: inline-block; padding-right: 1.5%; overflow-y: hidden; overflow-x:hidden;}
+
+/* ************************************************ PAGES STYLES END ************************************************ */
+/* ************************************************ NAVIGATION START ************************************************ */
+.navigation{
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100vh;
+  padding-right: 2em;
+  height: auto;
+  font-family: VG5000-Regular;
+  color: black/*#ff7200*/;
+  font-size: 1.2vw;
+  text-transform: lowercase;
+  text-align: justify;
+  background-color: transparent;
+  transform: translate(calc(1.25em - 50%),-50vh) rotate(-90deg);
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.navigation a { /*white-space: nowrap*/ }
+
+ &:after {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+
+.navigationText{
+
+  text-align: justify;
+  word-spacing: 0.06vw;
+  color: white /*#ff7200*//*#ffff00*/;
+    -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: #ff7200;
+}
+
+a{text-decoration: none; color: #ff7200;/*color: #8080ff;*/}
+a:hover{text-decoration: none; color: white; background-color: black  /*#b6abc6*/; }
+/* ************************************************ NAVIGATION END ************************************************ */
+/* ************************************************ REFERENCES START ************************************************ */
+.draggable_references{
+height: auto; width: auto; position: relative; z-index: 0; margin-top: 3%; float: left; margin-right: 25%; margin-bottom: 3%;   z-index: 14;
+}
+
+.references{
+  width:100%;
+  height: auto;
+  color:/*#b6abc6*/#ff7200;
+  font-family: VG5000-Regular;
+  font-size:0.7vw;
+  line-height: 2em;
+  padding-top: 0.2%;
+  padding-left: 0.2%;
+  padding-right: 0.2%;
+  padding-top: 0.2%;
+  word-wrap: break-word;
+  background-color: transparent;
+  box-shadow: 0px 0px 30px 0px #ff7200 /*#050dff*/; 
+}
+.read{
+  margin-top: 10%;
+  width:100%;
+  height: auto;
+  font-family: VG5000-Regular;
+  font-size: 2vw;
+  word-spacing: 0.06vw;
+  color: white /*#ff7200*//*#ffff00*/;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ff7200;
+  line-height: 1.8em;
+  padding-top: 0.2%;
+  padding-left: 0.2%;
+  padding-right: 0.2%;
+  padding-top: 0.2%;
+  word-wrap: break-word;
+  background-color: transparent;
+  box-shadow: 10px 0 100px 10px #ededed; 
+}
+
+

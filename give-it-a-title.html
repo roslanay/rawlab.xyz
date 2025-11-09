@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Give it a title | Roslana Yotova</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/giveitatitle-01.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-03.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-04.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-05.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-06.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-07.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-08.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/giveitatitle-09.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"> 
+							<video width="100%" height="100%" controls>
+								<source src="projects/giveitatitle-video.mp4" type="video/mp4">
+								<!-- <source src="projects/groundtruth-00-video.mp4" type="video/ogg"> -->
+								Your browser does not support the video tag.
+							</video>
+						</div>
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Give it a title<br> <span style="font-weight: 400;">video mapping, Mentality No Style | 100 years DeStijl</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						The “#givitatitle” is a multidisciplinary installation made by students of the Royal Academy of Art in collaboration with TodaysArt in the context of 100 years anniversary of establishing a journal called “De Stijl”. The installation consists of three transparent display panels activated by projecting constantly fluctuating flow of information that creates a juxtaposition narrative to the keynote speaker. Materials are synchronized according to the present narrative in order to visualize overwhelming diversity by inclusion, not exclusion.
+						<br>
+						The artists say beauty of our world is that it is complex, diverse and chaotic. Truth and false are abstract concepts that vary regarding to the context to which they are applied. It is necessary to operate by knowing the context in order to understand and be willing to accept realities. How does one stay open for dialog and different interpretations? This work is developed with the purpose of reminding people that reality is constructed and choices are predetermined, hence the illusion of freedom.
+					</span>
+					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://todaysart.nl/2017/program/givitatitle/" target="_blank" class="block-link">
+					<span class="proj-title">comissioned by</span> 
+					<span class="proj-type">Todays Art</span> 
+					<span class="proj-expo">NL</span>
+					<span class="proj-year">2017</span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Theater aan het Spui</span> 
+					<span class="proj-expo">The Hague</span>
+					<span class="proj-year"></span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">collaborators</span> 
+					<span class="proj-type">Chris Kore<br>Katsiaryna Banar<br>Maja Pop Trajkova</span> 
+					<span class="proj-expo">UA<br>BY<br>MK</span>
+					<span class="proj-year"></span>
+				</p>
+				
+				
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

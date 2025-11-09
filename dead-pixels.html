@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Dead Pixels</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/dead-pixel-01.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/dead-pixel-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/dead-pixel-03.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/dead-pixel-04.gif" alt="Girl in a jacket"></div>
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Dead Pixels<br> <span style="font-weight: 400;">interactive installation, face recognition</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						Dead Pixels is an algorithmic system in which the visitor simultaneously occupies the roles of observer and agent of decay.
+						The interactive installation mimics a diagnostic test for dead pixels: with each new participant, traces of digital “death” accumulate upon the image, fragmenting and destabilizing its original coherence.
+						<br>	<br>
+						Here, the act of seeing becomes a form of consumption, and interaction itself unfolds as a process of depletion. What begins as a unified image gradually disintegrates into a landscape of digital erosion. A secondary screen monitors this transformation, mapping the corruption of the visual field and translating its breakdown into quantifiable data.
+						<br>	<br>
+						The work interrogates the paradox of technological progress and the logic of planned obsolescence. It asks how our relentless pursuit of connectivity and expansion contributes to the erosion of materiality, data, memory, and the natural world.
+						<br>	<br>
+						Dead Pixels embodies a poetics of decay and forgetting—an inquiry into the fragility of digital infrastructures, the extractive nature of technological production, and the ethics of participation within systems of consumption and loss.
+						
+					</span>
+					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://chartagallery.com/2025/10/05/look-ecology-and-technology-2025/" target="_blank" class="block-link">
+					<span class="proj-title">comissioned by</span> 
+					<span class="proj-type">LOOK Ecology & Technology Festival</span> 
+					<span class="proj-expo">BG</span>
+					<span class="proj-year">2025</span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Depoo</span> 
+					<span class="proj-expo">Sofia</span>
+					<span class="proj-year"></span>
+				</a>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

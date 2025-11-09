@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Echo Systems</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/echo-systems-01.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/echo-systems-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/echo-systems-03.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/echo-systems-04.jpg" alt="Girl in a jacket"></div>
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Echo Systems<br> <span style="font-weight: 400;">interactive installation, sound art</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						Echo Systems is an interactive sound installation that uses electronic waste, sensors,
+						and modulators to capture and translate the otherwise imperceptible electromagnetic fre-
+						quencies into sound. 
+						<br>	<br>
+						The work responds in real time to its own frequency environment, revealing
+						the hidden sonic landscape shaped by human activity. It functions as a responsive ecosystem, prompting reflection on the geophysical dimensions and materiality of media infrastructures, as well as the invisible impact of technology on our surroundings.
+					
+						
+					</span>
+					
+				</p>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Ars Electronica</span> 
+					<span class="proj-expo">Linz</span>
+					<span class="proj-year">2025</span>
+				</a>			
+				<p class="block-para">
+					<span class="proj-title"></span> 
+					<span class="proj-title">LOOK Ecology & Technology</span> 
+					<span class="proj-expo">Sofia</span>
+					<span class="proj-year">2025</span>
+				</a>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

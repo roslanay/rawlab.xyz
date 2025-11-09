@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection with TensorFlow.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Hide overflow to prevent scrolling */
+        }
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Send video container to the background */
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Scale video to cover entire container */
+            filter: grayscale(1);
+            -webkit-filter: grayscale(1); 
+            filter: grayscale(85%); 
+        }
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Bounding box canvas sits behind the video */
+        }
+        #overlayCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Overlay canvas sits above the video */
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" autoplay></video>
+    </div>
+    <canvas id="canvas"></canvas>
+    <canvas id="overlayCanvas"></canvas>
+
+    <script>
+        async function runObjectDetection() {
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const overlayCanvas = document.getElementById('overlayCanvas');
+            const ctx = canvas.getContext('2d');
+            const overlayCtx = overlayCanvas.getContext('2d');
+
+            // Load the model
+            const model = await cocoSsd.load();
+
+            // Access webcam
+            const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+            video.srcObject = stream;
+
+            // Function to set canvas dimensions based on window size
+            function setCanvasDimensions() {
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+                canvas.width = windowWidth;
+                canvas.height = windowHeight;
+                overlayCanvas.width = windowWidth;
+                overlayCanvas.height = windowHeight;
+            }
+
+            // Set canvas dimensions initially and on window resize
+            setCanvasDimensions();
+            window.addEventListener('resize', setCanvasDimensions);
+
+            // Array to store bounding box information
+            let boundingBoxes = [];
+
+            // Function to generate random color
+            function getRandomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            // Detect objects and draw bounding boxes
+            setInterval(async () => {
+                const predictions = await model.detect(video);
+
+                // Update boundingBoxes array with new predictions
+                predictions.forEach(prediction => {
+                    const [x, y, width, height] = prediction.bbox;
+                    boundingBoxes.push({
+                        x: x * canvas.width / video.videoWidth,
+                        y: y * canvas.height / video.videoHeight,
+                        width: width * canvas.width / video.videoWidth,
+                        height: height * canvas.height / video.videoHeight,
+                        class: prediction.class,
+                        color: getRandomColor(),
+                        timestamp: Date.now() // Add timestamp for each bounding box
+                    });
+                });
+
+                // Remove bounding boxes that have been visible for more than 1 minute
+                const currentTime = Date.now();
+                boundingBoxes = boundingBoxes.filter(box => currentTime - box.timestamp <= 60000);
+
+                // Draw bounding boxes on overlay canvas
+                overlayCtx.clearRect(0, 0, overlayCanvas.width, overlayCanvas.height);
+                boundingBoxes.forEach(box => {
+                    overlayCtx.fillStyle = box.color;
+                    overlayCtx.fillRect(box.x, box.y - 20, box.class.length * 10, 20); // Adjust the width based on the length of the label text
+                    overlayCtx.beginPath();
+                    overlayCtx.rect(box.x, box.y, box.width, box.height);
+                    overlayCtx.lineWidth = 3;
+                    overlayCtx.strokeStyle = box.color;
+                    overlayCtx.stroke();
+                    overlayCtx.font = '16px Arial';
+                    overlayCtx.fillStyle = 'white';
+                    overlayCtx.fillText(box.class, box.x, box.y);
+                });
+            }, 100);
+        }
+
+        // Run the object detection function
+        runObjectDetection();
+    </script>
+</body>
+</html>

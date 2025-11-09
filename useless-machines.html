@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Useless Machines</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/useless-machines-06.gif" alt="Girl in a jacket"></div>						
+						<div class="swiper-slide"><img src="projects/useless-machines-01.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/useless-machines-04.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/useless-machines-02.jpg" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/useless-machines-05.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/useless-machines-03.jpg" alt="Girl in a jacket"></div>
+
+
+
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title">Useless Machines<br> <span style="font-weight: 400;">workshop, creative coding</span></span> 
+					<span class="proj-type">
+						<!-- <a target="_blank" href="mailto:roslanayotova@gmail.com">video mapping</a> <br> <a target="_blank" href="tel:+359885355794">100 years DeStijl</a>  -->
+					</span> 
+					<span class="proj-expo">
+						In a world obsessed with efficiency and productivity, we invite you to embrace uselessness! This workshop will explore the creation of intentionally unproductive machines that challenge the relentless pursuit of technological progress in a hyper-efficient society. Let’s create machines that do nothing useful, except make us rethink our relationship with technology.
+						<br>	<br>
+In this two-day creative coding workshop, we’ll explore AI-powered interaction using beginner-friendly tools. We will create reactive machines that respond to user input, movement, sound, or even emotions in unexpected ways. By the end of the workshop, we will showcase a collection of useless machines made with a purpose. Playful, unexpected creations that offer a break from today’s obsession with productivity and automation. 
+					
+					</span>
+					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://fig.bg/" target="_blank" class="block-link">
+					<span class="proj-title">presented as part of</span> 
+					<span class="proj-type">FIG. Festival for Illustration and Graphics</span> 
+					<span class="proj-expo">BG</span>
+					<span class="proj-year">2025</span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">location</span> 
+					<span class="proj-type">Swimming Pool</span> 
+					<span class="proj-expo">Sofia</span>
+					<span class="proj-year"></span>
+				</a>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

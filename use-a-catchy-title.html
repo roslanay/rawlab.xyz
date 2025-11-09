@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page1 -->
+<html lang="en"><script type="text/javascript" async="" src="./Use a catchy title._files/ga.js"></script><script type="text/javascript">
+    var spector;
+    var captureOnLoad = false;
+    var captureOffScreen = false;
+    window.__SPECTOR_Canvases = [];
+
+    (function() {
+        var __SPECTOR_Origin_EXTENSION_GetContext = HTMLCanvasElement.prototype.getContext;
+        HTMLCanvasElement.prototype.__SPECTOR_Origin_EXTENSION_GetContext = __SPECTOR_Origin_EXTENSION_GetContext;
+
+        if (typeof OffscreenCanvas !== 'undefined') {
+            var __SPECTOR_Origin_EXTENSION_OffscreenGetContext = OffscreenCanvas.prototype.getContext;
+            OffscreenCanvas.prototype.__SPECTOR_Origin_EXTENSION_OffscreenGetContext = __SPECTOR_Origin_EXTENSION_OffscreenGetContext;
+
+            OffscreenCanvas.prototype.getContext = function () {
+                var context = null;
+                if (!arguments.length) {
+                    return context;
+                }
+    
+                if (arguments.length === 1) {
+                    context = this.__SPECTOR_Origin_EXTENSION_OffscreenGetContext(arguments[0]);
+                    if (context === null) {
+                        return context;
+                    }
+                }
+                else if (arguments.length === 2) {
+                    context = this.__SPECTOR_Origin_EXTENSION_OffscreenGetContext(arguments[0], arguments[1]);
+                    if (context === null) {
+                        return context;
+                    }
+                }
+    
+                var contextNames = ["webgl", "experimental-webgl", "webgl2", "experimental-webgl2"];
+                if (contextNames.indexOf(arguments[0]) !== -1) {
+                    // context.canvas.setAttribute("__spector_context_type", arguments[0]);
+                    // Notify the page a canvas is available.
+                    var myEvent = new CustomEvent("SpectorWebGLCanvasAvailableEvent");
+                    document.dispatchEvent(myEvent);
+                    this.id = "Offscreen";
+                    window.__SPECTOR_Canvases.push(this);
+    
+                    if (captureOnLoad) {
+                        // Ensures canvas is in the dom to capture the one we are currently tracking.
+                        if (false) {
+                            spector.captureContext(context, 500, false, false);
+                            captureOnLoad = false;
+                        }
+                    }
+                }
+    
+                return context;
+            }
+        }
+
+        HTMLCanvasElement.prototype.getContext = function () {
+            var context = null;
+            if (!arguments.length) {
+                return context;
+            }
+
+            if (arguments.length === 1) {
+                context = this.__SPECTOR_Origin_EXTENSION_GetContext(arguments[0]);
+                if (context === null) {
+                    return context;
+                }
+            }
+            else if (arguments.length === 2) {
+                context = this.__SPECTOR_Origin_EXTENSION_GetContext(arguments[0], arguments[1]);
+                if (context === null) {
+                    return context;
+                }
+            }
+
+            var contextNames = ["webgl", "experimental-webgl", "webgl2", "experimental-webgl2"];
+            if (contextNames.indexOf(arguments[0]) !== -1) {
+                context.canvas.setAttribute("__spector_context_type", arguments[0]);
+                // Notify the page a canvas is available.
+                var myEvent = new CustomEvent("SpectorWebGLCanvasAvailableEvent");
+                document.dispatchEvent(myEvent);
+
+                if (captureOffScreen) {
+                    var found = false;
+                    for (var i = 0; i < window.__SPECTOR_Canvases.length; i++) {
+                        if (window.__SPECTOR_Canvases[i] === this) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        window.__SPECTOR_Canvases.push(this);
+                    }
+                }
+
+                if (captureOnLoad) {
+                    // Ensures canvas is in the dom to capture the one we are currently tracking.
+                    if (this.parentElement || false) {
+                        spector.captureContext(context, 500, false, false);
+                        captureOnLoad = false;
+                    }
+                }
+            }
+
+            return context;
+        }
+    })()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Use a catchy title.</title>
+<!--   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="./Use a catchy title._files/style.css">
+  <script src="./Use a catchy title._files/jquery-1.12.4.js"></script>
+  <script src="./Use a catchy title._files/jquery-ui.js"></script>
+  <script src="./Use a catchy title._files/print.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./Use a catchy title._files/print.min.css">
+
+
+  <script>
+   // DRAG IMAGES
+  $( function() {
+    $( ".draggable, .draggable_text, .draggable_references" ).draggable( );
+   // HIGHLIGHT
+    function highlightText( ) {
+      $('.highlighted').removeClass( 'highlighted' );
+      var link = $( this );
+      var items = $( link.data( 'selector' ) );
+      items.addClass( 'highlighted' );
+      link.parent().css("color", "black")
+      link.css("background-color", "black")
+      link.css("color", "white")
+    }
+    
+
+    $( '.linked-text' ).hover( highlightText );
+  } );
+  </script>
+<!-- <script>
+   $('document').ready(function() {
+             $(document).scroll(function(){
+             if(document.documentElement.clientHeight + 
+             $(document).scrollTop() >= document.body.offsetHeight )$(document).scrollTop(0);
+             });
+          }); 
+</script> -->
+<style type="text/css"></style><style type="text/css">.markerjs-logo {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+
+    fill: #333333;
+}
+
+.markerjs-logo a {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.markerjs-logo a:hover {
+    fill: #ff8080;
+}
+
+.markerjs-toolbar {
+    background-color: #cccccc;
+    padding: 0px 5px;
+    margin: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(20, auto);
+}
+
+
+.markerjs-toolbar-button, .markerjs-toolbar-logo a {
+    display: inline-block;
+    margin: 2px;
+    padding: 3px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    border-bottom: transparent solid 1px;
+    border-right: transparent solid 1px;
+
+
+    fill: #333333;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.markerjs-toolbar-separator {
+    margin: 5px 5px;
+    border: 1px solid #dddddd;
+}
+
+.markerjs-toolbar-button:hover, .markerjs-toolbar-logo a:hover {
+    background-color: #eeeeee;
+    background: radial-gradient(#eeeeee, #cccccc);
+
+    fill: #ff8080;
+}
+
+.markerjs-toolbar-button svg {
+    height: 16px;
+}
+
+.markerjs-text-editor {
+    position: fixed;
+    z-index: 20000;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.markerjs-text-editor textarea {
+    width: 50%;
+    min-width: 50px;
+    max-width: 500px;
+    height: 50%;
+    min-height: 50px;
+    max-height: 500px;
+}
+
+.markerjs-text-editor .markerjs-text-editor-button-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
+    min-width: 50px;
+    max-width: 500px;
+    padding-top: 10px;
+}
+.markerjs-text-editor .markerjs-text-editor-button {
+    display: grid;
+    align-items: center;
+    padding: 0px;
+    margin-left: 15px;
+    height: 20px;
+
+    cursor: pointer;
+
+    fill: #888888;
+}
+.markerjs-text-editor .markerjs-text-editor-button:hover {
+    fill: #ff8080;
+}</style></head>
+<body>
+<div id="webpage">
+
+
+<!-- <div class="marquee">
+<p>If communication was a game we should all be cheaters</p>
+</div>
+ -->
+
+
+<div id="page0">
+<div class="headers" style="margin-top:20%;">
+ <div class=".headersAbstract"><h6>Use a catchy title.</h6></div> 
+  </div>   
+      <div class="draggable_text ui-draggable ui-draggable-handle" style="width: 48%; margin-top: -20%; overflow-y: visible;"> 
+            <p class="abstract" id="a">This thesis is a result of my research on a subject that has always been a fascination to me. Nevertheless I got completely lost in a&nbsp;world of my very own words, explanations,&nbsp;ideas, and&nbsp;probably even misconceptions. I started my research on the subject of language. There is something appealing to me about the way in which it fails to explain the world and our emotions.&nbsp;During my research I was quite&nbsp;surprised by a discovery. Apparently&nbsp;&nbsp;the word communication comes from the latin “communicare”, which literally translates “to share”. As a graphic design student, it is far from surprising that I was so fascinated by this little detail. I have spent the last four years learning about the practice of communication, and I never knew what it actually means. I&nbsp;had to ask myself: Do I master the practice of&nbsp;communication or does it master me? 
+             </p>
+            <p class="abstract" id="aa">
+            I&nbsp;try to understand to what extent can media shrink our perception?&nbsp;How do the communication tools we use give form to and alter our thoughts? How much do we actually engage with the people around and what does it say about our society.&nbsp;The ways in which we interact are a vehicle for defining our personal and cultural identity. The tools we use to communicate and to distribute information create a world where human interaction becomes dependent on and therefore limited to them. Talking is distortion of air but does that mean we can never speak in vaccum?&nbsp;</p>
+        </div>             
+</div>
+
+<!-- START CONTAINER 2 - WORD GRID -->
+<div id="container2">
+<div class="square-grid">
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      verb<br><a class="linked-text wordLink" data-selector=".perceive">to perceive</a>
+      From Latin per- “through” + “capture, seize; understand”, from English “become aware or conscious of something, identify, consider, think of”. 
+    </div>
+  </div>
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      verb<br><a class="linked-text wordLink" data-selector=".tothink">to think</a>Icelandic þekkja “to know, recognise, identify, perceive”, Latin tonge “know”. 
+
+    </div>
+  </div>
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+  noun<br><a class="linked-text wordLink" data-selector=".knowledge">knowledge</a><br>From English “to be acquainted or familiar with; to have 
+encountered; to experience; 
+to recognize the nature of”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+  noun<br><a class="linked-text wordLink" data-selector=".experience">experience</a><br>From Latin experientia  “a trial, proof, experiment, experimental knowledge, experience”,  past participle of *periri “to go through”, from English “practical contact with and observation of facts or events”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      noun<br><a class="linked-text wordLink" data-selector=".fact">fact</a><br>From Latin factum “a deed, act, exploit; in Medieval Latin also state, condition, circumstance”, from English “information that is known or proved to be true”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+   noun<br><a class="linked-text wordLink" data-selector=".information">information</a><br>From Latin “formation, conception; educatio; to inform”. 
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+   <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      verb<br><a class="linked-text wordLink" data-selector=".toinform">to inform</a><br>From Middle English enforme, informe ‘give form or shape to’, also ‘form the mind of, teach’, from Old French enfourmer, from Latin informare ‘shape, fashion, describe’, from in- ‘into’ + forma ‘a form’.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      noun<br><a class="linked-text wordLink" data-selector=".mind">mind</a><br>From Old English mynd,
+      emynd “memory, remembrance; memorial, record; act of commemoration; thought, purpose; consciousness, mind, intellect”, from Proto-Germanic mundiz, gamundiz “memory, remembrance”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      noun<br><a class="linked-text wordLink" data-selector=".conscious">conscious</a><br>From Latin conscius, itself from con- a form of com- “together” + scire “to know”.
+
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+     noun<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".language">language</a>From Middle English langage, language  “a form of communication using words either spoken or gestured with the hands and structured with grammar, often with a writing system; wording; choice of words”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      noun<br><a class="linked-text wordLink" data-selector=".word">word</a>a single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence.
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    verb<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".tospeak">to speak</a><br>From Proto-Germanic sprekan “to speak, make a noise”, from Proto-Indo-European spreg “to make a sound”.
+    </div>
+  </div>
+
+
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    noun<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".meaning">meaning</a><br>what is intended to be, or actually is, expressed or indicated; signification.
+    </div>
+  </div>
+
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+<!-- empty -->
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+ <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    verb<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".signify">signify</a><br>
+From Latin significare, from signum “token, sign”+ “do, make”. 
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+  noun<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".communication">communication</a>From Latin communiciatio “imparting, communicating, I share, I impart”, from English “sharing, imparting or exchanging of information by speaking, writing, or using some other medium;.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+<!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+     noun<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".medium">medium</a><br>From Latin medium “middle”, from late 16th century English “something intermediate in nature or degree”.
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      adjective<br><a class="linked-text wordLink" href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#link" data-selector=".intermediate">intermediate</a>coming between two things in time, place, character, etc. synonyms: halfway, in-between, middle, mid, midway, median, intermediary, intervening, interposed
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    verb<br><a class="linked-text wordLink" data-selector=".intervene">intervene</a>From Latin intervenio “come between”, from English “prevent or alter”.related to communis, common, public, general.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+    <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+  verb<br><a class="linked-text wordLink" data-selector=".alter">alter</a>Change in character or composition, typically in a comparatively small but significant way.
+    </div>
+  </div>
+ <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+   <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    noun<br><a class="linked-text wordLink" data-selector=".character">character</a>From Latin character, from Ancient Greek kharaktḗr “type, nature, character”, from kharássō, “I engrave”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+    <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  
+
+ <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+     noun<br><a class="linked-text wordLink" data-selector=".participation">participation</a>the action of taking part in something, involvement, engagement, contribution, sharing, association, joining in.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+     <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+     verb<br><a class="linked-text wordLink" data-selector=".toshare">to share</a>give out, distribute, dispense, hand out, deal out, use, occupy, or enjoy (something) jointly with another or others, possess (a view or quality) in common with others, participate in, take part in, play a part in, be involved in, contribute to, partake in; 
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+   verb<br><a class="linked-text wordLink" data-selector=".play">play</a>From English to take part in a game or other organized activity, to compete against a person or team in a game, to behave or pretend in a particular way, especially in order to produce a particular effect or result, to deceive someone to make them laugh or in order to get an advantage over them:
+    </div>
+  </div>
+ <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+   noun<br><a class="linked-text wordLink" data-selector=".game">game</a>a procedure or strategy for gaining an end, a physical or mental competition conducted according to rules with the participants in direct opposition to each other, the manner of playing in a contest, the set of rules governing a game, any activity undertaken or regarded as a contest involving rivalry and strategy.
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+<div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+<div class="square-grid__cell square-grid__cell--7"> 
+    <div class="square-grid__content">
+      noun<br><a class="linked-text wordLink" data-selector=".rule">rule</a>From Middle English reule, rewle, rule, from Old French riule, reule, itself an early semi-learned borrowing from Latin regula “straight stick, bar, ruler, pattern”, from regere “to keep straight, direct, govern, rule”.
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+      noun<br><a class="linked-text wordLink" data-selector=".creative">creative</a>From Proto-Italic “to make grow”, from Proto-Indo-European “to grow, become bigger”.
+
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+  noun<br><a class="linked-text wordLink" data-selector=".hack">hack</a>an act of computer hacking, a code providing a quick or inelegant solution to a particular problem, a strategy or technique for managing one’s time or activities more efficiently, creative problem solving
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+  <!-- empty -->
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+  noun<br><a class="linked-text wordLink" data-selector=".imagination">imagination</a>the faculty or action of forming new ideas, or images or concepts of external objects not present to the senses, imaginative faculty, creative power, fancy, the ability of the mind to be creative or resourceful, creativity, imaginativeness, creativeness, the part of the mind that imagines things
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+  <div class="square-grid__cell square-grid__cell--7">
+    <div class="square-grid__content">
+    </div>
+  </div>
+
+
+<!--   MULTYPLY GRID END  -->
+</div> 
+</div>
+<!-- ************************************************ END CONTAINER 2 - WORD GRID ************************************************ -->
+
+<!-- ************************************************ START CONTAINER 1 - BODY TEXT ******************************************************  -->
+<div id="container1">
+
+<!-- ************************************************ START PAGE 1 ************************************************ -->
+<div id="page1">
+ <div class="headers">
+    <div class="header1"><h1>01</h1></div>
+    <div class="header2"><h2>The meaning<br>of meaning.</h2></div>
+  </div>
+<div>
+<img src="./Use a catchy title._files/002.jpg" class="draggable ui-draggable ui-draggable-handle" style="margin-top:71%; margin-left: -80%; position: absolute; width: 25%;">  
+        <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="a"><span class="experience"><span class="information">All species experience and understands their environment in terms of the information processed by their senses. [1] We have built-in responses to certain types of sensations. Sunflowers for example can sense the sunlight and adjust their position accordingly so their flowers point to the sun.</span> <span class="perceive">A sense is a physiological capacity of organisms that provides data for perception. We have a multitude of sensors for sight, hearing, taste, smell, touch, thermoception, kinesthetic sense, pain, balance, vibration, and to some internal stimuli such as sense of hunger and sense of thirst. Our experience of reality is based upon the perception of sensations.</span> <span class="knowledge">Our embodiment creates the agency of self with which we perceive our environment. When we perceive we become aware.</span> <span class="mind">This awareness is a result of the processing of signals by our nervous system which are triggered from some soft of a stimulation of the senses. [2] “The necessity of being experienced introduces into knowledge an irrational element, which cannot be logically justified.” [3]</span> <!-- So to correct Descartes:  We feel, therefore we are. -->
+         </span></p></div> 
+
+
+
+          <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            1,2 Wikipedia contributors (2018, December 13) Perception. In Wikipedia, The Free Encyclopedia. Retrieved from https://en.wikipedia.org/w/index.php?title=Perception&amp;oldid=873488609 / 
+            3 Cohen, R. &amp; &nbsp;Schnelle, T. (1986) &nbsp;Cognition and Fact: Materials on Ludwik Fleck. / 
+          </div> 
+         </div>   
+
+         <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="b">
+            <span class="perceive"><span class="meaning">Although, in addition to the senses that our genetical structures have provided, we have opened up perspectives on reality based on information that is mediated by symbols rather than the senses.</span> <span class="word">This has become our second nature and it is transmitted not through our genes, but intentionally passed on and learned. In one word - languages. </span> <span class="experience"><span class="conscious">Thus our experience of reality immerses from an inner dialogue in which we relate our personal feelings and events to an external reality and an understanding of situations we have witnessed before.</span></span> [4]</span></p>
+         </div> 
+
+         <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            4&nbsp;Nevejan, K. (2012) Withessing you: On trust and truth in a networked world. / 
+          </div> 
+         </div>   
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="c">I started to  wonder which came first. Thought or language? <span class="language"><span class="meaning"><span class="toshare">It is logical to assume that thought was first and language is an attempt to express that thought and rationalise the world.</span></span></span> <span class="tothink">There are many studies on the relationship between language and thought. In brief some conclusions include the ideas that thought and language have interactive relationship where language dictates thinking meanwhile thought also influences language. In fact there are many non-verbal ways of thinking such as in mental images (visual), kinesthetic, musical and mathematical.</span></p>
+          </div> 
+
+           <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="d"><span class="tothink"><span class="toinform">Language is the extension of thinking. It is proven, that we can think and communicate without using language, but nevertheless as we grow up our mind processes are being programmed to operate and communicate by using signs and symbols.</span></span> Of course it would be naive of me not to consider all the different possibilities of self-expression and communication, but nevertheless languages are still the number one tool we use to exchange information and ideas.</p>
+          </div> 
+          <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            5 Focault, M. (1966) The Order of Things: An Archaeology of the Human Sciences / 
+            6 Kenneth Burke (1966) Language as Symbolic Action. 
+          </div> 
+         </div>
+
+         <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="e"><span class="tothink"><span class="meaning"><span class="toshare">In general languages are modes for representing our thoughts by the use of arbitrary symbols and combinations of those symbols. [5] They are an arrangement, which orders our knowledge with the goal of making it possible to represent in a system of names.</span></span></span> <span class="conscious"><span class="toshare">Humans are “the symbol-using (symbol making, symbol misusing)” beings. We are “separated from our natural existence by instruments of own making”. [6]</span></span> <span class="language">Languages are very old instruments. The literary theorist  Kenneth Burke describes language as the very centre of our existence and through which we exhibit our desires for order, our wish to control the natural world by naming its contents, and even our effort to dominate others. I suppose the boundary between a tool and a weapon can sometimes be very hard to tell.</span> </p>
+          </div> 
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="f"><span class="language">In a film by Jean Luc Goddard called Alphaville, Alpha 60, the city’s computer system in complete control has outlawed free thought and individualist concepts like love, poetry, and emotion, replacing them with contradictory concepts or eliminating them altogether.</span> <span class="tothink"><span class="meaning"><span class="alter"><span class="character">Or the novel Nineteen Eighty-Four by George Orwell, in which Newspeak is a controlled language, of restricted grammar and limited vocabulary, meant to limit the freedom of thought, personal identity, self-expression, free will, that would ideologically threaten the régime of the Party. He goes as far to invent the term “thoughtcrime”.</span></span></span><span class="character"></span></span></p>
+          </div> 
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="g"><span class="mind">We could speculate that dystopian movies have a close resemblance to real life. In the sense where the expression of our thoughts happen according the possibilities our knowledge of language would allow.</span> <span class="perceive"> <span class="language"><span class="character">Some scientists even believe that when learning a new language, we become aware of new perceptual dimensions because different languages embody different world views and ways of organising the world. For example the perception of time, space, age etcetera. There are even some innumerate societies where counting is not an existing practice, so their understanding of quantity is completely different than our own.</span></span></span></p>
+          </div> 
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="h"><span class="knowledge"><span class="meaning"><span class="toshare">Because we know how to use language and it is so ubiquitous, we can transmit really complicated thoughts to one another. But language does not just reflect reality, it selects reality.</span></span> <span class="toinform">It is not only a description of an experience, but it directs us to look at one thing over another.</span> <span class="fact">Since human beings depend for their lives more on learned and less on genetic information than do other living things, the structure through which information is carried exerts a decisive influence on our lives.</span></span> <span class="perceive"><span class="language"><span class="toshare">Language does not merely reflect an objective world, but words participate in constructing that world as well. To use language is to engage in a construction process, and what is constructed is our view of the world.</span></span> But thinking and perception depend on our previously accumulated knowledge.</span></p>
+          </div> 
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="i"><span class="knowledge">What we already know changes the way we see the world. Knowledge can sometimes result in a closed and settled perspective, leading to not moving beyond the way in which we perceive and deal with problems. For example in the case with babies. We can’t have a conversation with them, because they don’t have any knowledge on the medium of spoken language.</span> <span class="tothink">That doesn’t mean a baby doesn’t have thoughts or anything to say to us. Babies never resemble a blank canvas. The beginning of their cognition process is their beginning. Babies’ capacities for feeling originate through interaction in the moment they are formed in the womb. It could even be that their thinking (cognition) is even greater than ours, since it is not mediated through human language.</span></p>
+          </div> 
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="i"><span class="conscious"><span class="toshare">In fact newborn babies communicate between each other in their own imaginary languages.</span> <span class="tospeak">They invent those at the moment of their interaction. Most of the time to us it sounds like nonsense, but it’s impossible to deny that they do exchange some meaning.</span></span> We are just too biased by our knowledge of institutionalised language norms to possibly understand it and engage in such a conversation. They are even much better at sensing other people’s emotions than grown up’s can ever be. The act of imitation is important in the newborns world.  At the beginning  babies imitate the facial expressions that they see and express themselves using this “language”. It is interesting that these facial expressions are very similar across  all cultures. There seems to be universal expressions for the emotions of fear, sadness, joy, disgust, and anger. It appears that the human face speaks a sort of a universal language of expressions and babies use it to communicate to us before they know how to speak. [7]</p>
+          </div> 
+
+          <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph" id="i"><span class="toinform"><span class="character">But as they grow up, babies pick up on the language from their environment and start to use it for expressing their thoughts.</span></span> That’s when they start to make sense out of our world through the use of language and we can have a sequential conversation.</p>
+          </div> 
+
+
+          <img src="./Use a catchy title._files/012.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:242%; margin-left: -80%; position: absolute; width: 25%;">        
+</div>
+<!-- ************************************************ END PAGE 1 ************************************************ -->
+
+<!-- ************************************************ START PAGE 2 ************************************************ -->
+<div id="page2">
+  
+  
+
+
+  <div class="headers">
+    <div class="header1"><h1>02</h1></div>
+    <div class="header2"><h2>Use a<br>catchy title.</h2></div>
+  </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="toshare">Communication comes from the Latin word communicare, which literary means “to share”. In simple words communication is the exchange of facts, ideas, opinions, emotions. For communication to happen there must be the sharing of meaning.</span> <span class="word"><span class="meaning">Words, for example, ‘mean’ nothing by themselves. It is only when people make use of them that they stand for anything, or, in one sense, have ‘meaning.’ They are instruments for communicating.</span></span></p>
+    </div> 
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="conscious"><span class="meaning"><span class="participation"><span class="toshare">When we are&nbsp;communicating, we are not only exchanging information, but also witnessing&nbsp;each other. That means we continually negotiate trust and truth. We&nbsp;witness&nbsp;each others presence. [8] This is how we establish trust and sense of what is “true”. We tell&nbsp;each other stories, we&nbsp;laugh, we debate and this is how create&nbsp;meaning and value.</span></span></span></span> <span class="participation"><span class="toshare">People like to participate. We like to be a part of something larger than we as an individual are. Humans have always been part of a social group. A tribe, a family, a team, etcetera. Different cultures are a result of this witnessing as well.</span></span></p>
+    </div> 
+     <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            7&nbsp;Nevejan, K. (2012) Withessing you: On trust and truth in a networked world.
+          </div> 
+         </div>  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="experience"><span class="conscious"><span class="toshare">To witness each-other is crucial for the construction of our reality. When witnessing each other, trust and truth are negotiated and as a result social structures are shaped.8</span> <span class="meaning"><span class="participation"><span class="toshare">Communication constructs social realities in the sense that meaning is created by common ideas and their exchange between people.&nbsp;“When negotiating trust and truth, people have to take responsibility for their words and deeds. Results of such negotiations, the shared authoring of outcomes, inspire meaning to emerge and cultures to rise.”</span></span></span></span> <span class="word"><span class="participation">In a way it is the same as with letters. Letters receive meaning when being part of a bigger structure, as a word or sentence. When creating meaning and value (negotiating trust and truth) we decide in which actions to engage, what stories to tell, how we express.</span></span></span></p>
+    </div> 
+            
+    <img src="./Use a catchy title._files/021.png" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:70%; margin-left: -35%; width:37%; position: absolute;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="conscious"><span class="toinform"><span class="character">Freud speaks of culture as the fundamental order with which a man “will be dealing and within which he will be at home”.</span></span></span> <span class="toinform"><span class="character"><span class="toshare">These codes are the one governing our schemas of perception, our exchanges, our techniques, our values, and the hierarchy of our practices. But of course, a culture could not survive long unless it is a shared understanding. It relies on the repetition and reaffirmation of common practices. The very same codes and practices are the ones that we create when we share ideas and understanding.</span></span></span> <span class="conscious"><span class="participation">When we witness each-other. The social structures we participate in are not organised in closed systems, but rather between sets of elements in an interaction. So to say, communication.</span></span></p>
+    </div>  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="toshare"><span class="knowledge">The content of knowledge in this context is to extent the means of creation of culture. It resembles traditional myths. <span class="fact">And because we regard old habitual practices and conceptions as particularly self-evident, and that is how they create the foundations on which further social construction will happen.</span></span></span></p>
+    </div>  
+     <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            8 Cohen, R. &amp; &nbsp;Schnelle, T. (1986) &nbsp;Cognition and Fact: Materials on Ludwik Fleck.
+          </div> 
+         </div>  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">In a very technical manner, communication is the processing of signals. <span class="information"><span class="medium"><span class="toshare">For communication to exist there needs to be a sender who develops an idea into a message (encoding), a channel or a method of delivery (media) and a receiver, who interprets the message and assigns meaning to it (decoding).</span> <span class="alter">The method of delivery is not a neutral agent in the communication process but an active part in the transmission.</span></span></span></p>
+    </div>  
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="information"><span class="alter">“In the short span from the teacher’s mouth to the student’s ear the content of the knowledge transmitted is always slightly distorted.</span></span> <span class="fact"><span class="knowledge">Thus, in the course of decades or even centuries and millenia, divergences develop to an extent that it sometimes becomes doubtful whether anything of the original has been preserved at all.” [9]</span></span></p>
+    </div> 
+
+     <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            9,10 &nbsp;McLuhan, M. (1964) Understanding Media: The Extensions of Man.
+          </div> 
+         </div>  
+
+    <img src="./Use a catchy title._files/022.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:165%; margin-left: -27%; position: absolute; width: 25%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="tospeak"><span class="intermediate"><span class="intervene"><span class="alter">The communication tools we use have the power to translate our experiences into new forms.</span></span></span></span> In the same way that language translates our thoughts into the outside world. <span class="medium">Media are the extensions of the senses. [10] We employ media as ways of communicating, which makes it a vehicle for defining our personal and cultural identity. <span class="intervene"><span class="alter">By its definition a medium(singular for “media”) is the intervening substance through which sensory impressions are conveyed. “Societies have always been shaped more by the nature of the media by which men communicate then by the content of the communication.” [11]</span></span></span></p>
+    </div> 
+<div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            11&nbsp;Couldry, N. &amp; Hepp, A. &nbsp;(2017) The mediated construction of reality.
+          </div> 
+         </div>  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="information"><span class="medium"><span class="toshare">The beginning of human communication through channels, different than vocalization or gestures, is as ancient as cave paintings, drawn maps and writing.</span></span> <span class="tospeak"><span class="toshare">In the beginning of civilization there were oral cultures, later on scribal cultures, print cultures and nowadays digital cultures.</span></span> This is how the history of humankind has been more or less dominated by a certain kind of medium. [12]</span> <span class="tospeak">In traditional oral cultures knowledge, art, ideas and cultural material is received, preserved and transmitted orally from one generation to another over space and time.</span> <span class="medium"><span class="toshare">Today we rely on media to communicate, acquire knowledge and information and even find in it solutions to our problems. We exist in&nbsp;a disembodied state of social presence&nbsp;where the absence of our bodies&nbsp;gives new meanings to the physicality of&nbsp;experience.</span></span></p>
+    </div> 
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="medium"><span class="intermediate"><span class="alter">Even if media extends our bodies in space and time, it&nbsp;prevents us from&nbsp;touching.</span>&nbsp;Nowadays a significant role in social interaction play the&nbsp;screens. The screens have become carriers of information and the mediating material of our communication practices.</span></span> In a conversation the Luna Maurer(artist) and Andreas Zangger(historian of transitional networks) talk about humans and machines, designing&nbsp;systems&nbsp;and on the participation of their users.&nbsp;<span class="intermediate"><span class="intervene"><span class="participation">They discuss people on the streets as “man-machine hybrids” communicating with someone in a world out there. But the impact of technology on our social interactions is something we all experience on a daily basis and are to an extent aware of. This is why decided to use two examples that are not from the present. To not bore potential readers. I give these examples of how we create tools which become carriers of our intentions and whose features transform the ways in which we “share”.</span></span></span>
+</p>
+    </div> 
+     <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            12 Gretzinger, K. (2013) &nbsp;In a Manner of Reading Design.
+          </div> 
+         </div>  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">The first example is from the dialogue &nbsp;Phaedrus. <span class="language">In it Socrates expresses his concern with the invention of letters. In his words the <span class="intermediate">“Discovery of the alphabet will create forgetfulness in the learner’s souls, because they will not use their memories; they will trust the external written characters and not remember of themselves. <span class="alter">The specific which you have discovered is an aid not to memory, but to reminiscence, and you give your disciples not truth, but only the semblance of truth; they will be hearers of many things and will have learned nothing; they will appear to be omniscient and will generally know nothing; they will be tiresome company, having the show of wisdom without the reality.” [13]</span></span></span> </p>
+    </div> 
+
+     <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            13 Kluitenberg, E. (2006) Book of imaginary media: Excavating the dream of the ultimate communication medium.
+          </div> 
+         </div>  
+
+      <img src="./Use a catchy title._files/023.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:300%; margin-left: -27%; position: absolute; width: 25%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="participation"><span class="knowledge"><span class="tospeak"><span class="toshare">In Socrates’ view knowledge can only be gathered via a dialogue which is an exchange of questions and answers where ideas are explored until the knowledge is truly understood.</span></span> <span class="information"><span class="intermediate"><span class="intervene"><span class="toshare">Reading only mislead us to think that we have knowledge, when we only have data. It is a private experience of information and alienates us from the world around and contributes little understanding of a subject.</span></span></span></span></span>
+            </span></p>
+    </div> 
+
+  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">I recently found out about a term peep media. There are many examples of such devices in the history starting from traditional peep show devices, later the stereoscope and now virtual reality. <span class="medium"><span class="intervene"><span class="perception">The earliest type of stereoscope was invented in 1838. It demonstrates the binocular depth perception. When two pictures simulating left-eye and right-eye views of the same object are presented so that each eye sees only the image designed for it, the brain will fuse the two and accept them as a view of one solid  three dimensional object or space. The images merge in the peeper’s mind.</span></span></span></p>
+    </div>  
+    <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            14 &nbsp;Nevejan, K. (2012) Withessing you: On trust and truth in a networked world.
+          </div> 
+         </div>  
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">The mainstream stereoscope was a pair of photographic images placed inside a hand-held wooden box. The images that were used often depicted distant cities and landscapes. <span class="medium">It became a tool for “world voyaging”, a way to escape your immediate surroundings.</span> <span class="intermediate">This quote about the stereoscope comes from an advertising booklet for John Fallon’s “Stereopticon” show and gives a critique on the stereoscope when it was still an emerging medium. <span class="toshare"><span class="participation">“After all, the picture in the stereoscope is but a miniature, and, besides, there is nothing social in the enjoyment of the view revealed to you. You look selfish at the show with your personal eyes, and your friends must wait their turn to see it….”. [14]</span></span></span></p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="toshare"><span class="medium"><span class="intermediate"><span class="alter">The nature of the stereoscope is antisocial, but it’s popularity and use was maybe because it was a personal media machine, manipulated by one’s fingers, capable to teleport the users to witness the world, whenever everyday reality becomes boring. It was considered as a “highly convincing tool for armchair travelling”.</span></span></span> &nbsp;<span class="intermediate">But the act of “armchair travelling” creates an active relation between the view, the viewing apparatus and the viewer. It presents us with a tunnel vision and imposes it’s antisocial nature by alienating us from immediate reality.</span></span></p>
+    </div>
+<div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            15 Wikipedia contributors (2018) Haussmann’s renovation of Paris. In Wikipedia, 
+            The Free Encyclopedia. Retrieved from https://en.wikipedia.org/wiki/Haussmann%27s_renovation_of_Paris.
+          </div> 
+         </div>  
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">In another dialogue the previously mentioned artist Luna Maurer and historian Andreas Zangger debate “the designing of systems or plays” and their constrains and freedoms. They disscuss the idea of rules and resistance in a variety of ways. <span class="alter">In the talk they refer to the Ludwick Fleck, for his critique on the sociology of knowledge that in science, if the evidence doesn’t fit the theory, it is either considered as noise or accepted as a sign of resistance to the theory.&nbsp;<span class="participation">They talk of designed systems as having a set of rules, multiple participants and a number of possible outcomes or developments. Participants react within the given boundaries and the set of outcomes which depends on the framework. [15]</span></span></p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="experience"><span class="alter">When navigating in a space we are following the plan of the architects and urbanist that have designed it.</span><span class="mind">The way each one of us navigates is unique to ourself, but the overall path we follow is envisioned by the creators of the environment.</span></span> <span class="intervene">In the 19th century Paris had been a centre of civil unrest which lead to a transition between royalty, republic and empire six different times. <span class="character">One of the most useful tools of the rioters were sandbags, pavement slabs, wagons and even furniture which they used for barricades. By blocking off Paris’ narrow streets, the barricades prevented the soldiers trying to restore the civil order.</span> In 1852 Napoleon III gave the responsibility to Georges-Eugène Haussmann to re-plan Paris for giving soldiers easy access into all corners of the city and preventing the construction of effective barricades. Haussmann demolished the city’s streets and built wide open boulevards. <span class="alter"><span class="character">By transforming the infrastructure of the city he pursued to prevent and therefore limit the possible outcomes of civil (inter)actions and the construction of future barricades.</span></span> [16]</span></p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">By speaking of these systems&nbsp;I do not mean no state that they are all negative, there might in fact be as many positive examples as there are negative. <span class="intervene">What is the most significant about this story though is not how environment can be created in such a way to sustain order and power. The moral of the story are the citizens who managed collectively to find a creative solution for a problem by improvising with the available materials.</span> <span class="alter"><span class="toshare">Positive examples are games that would engage individuals in an interaction, such as entertaining games or sports. Nevertheless these design tactics apply to some other domains, such as the social&nbsp;world. In our everyday life we are&nbsp;participants in a&nbsp;structure of possible or impossible relations, which are defined by the set of rules typical for the given context. But there can be a positive side of rules. Meanwhile these rules limit our scope of expression, they also force us to come up with creative solutions in order to resist them.</span></span>&nbsp;
+</p>
+    </div>
+    
+<!--   <img src="05.jpg" id="link" alt="01" height="auto" width="auto" class="draggable" class="ui-widget-content" style="margin-top: 50%; margin-left: -3%">
+ --> 
+</div> 
+
+<!-- ************************************************ START PAGE 3 ************************************************ -->
+<div id="page3">
+
+  
+<div class="headers">
+    <div class="header1"><h1>03</h1></div>
+    <div class="header2"><h2>If<br>communication<br>was a game<br>we should all<br>be cheaters.</h2></div>
+  </div>
+        
+
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="meaning"><span class="character">When we dare to reinterpret a concept, an object, a rule, and anything for that mater, we&nbsp;allow the&nbsp;chance of discovering new possibilities.</span></span> <span class="tothink">In a book “Creativity flow and the psychology of discovery and invention”,&nbsp;Mihaly Csikszentmihalyi explains the phenomena of&nbsp;creativity as something that does not happen inside people’s heads, but in the interaction between a person’s thoughts and a sociocultural context.</span> <span class="participation">Creativity is&nbsp;experiencing the world in novel and original ways.&nbsp;When we create something, we do not create it from nothing. We take existing materials or ideas and use, transform, merge them accordingly to a vision that we have.&nbsp;Creativity is the working of our imagination in context. Imagination is closely&nbsp;related to reality. The connection&nbsp;lies in the opportunity that based upon reality, imagination provides innovation and possibilities. It helps us&nbsp;to distance&nbsp;ourself from the situation and&nbsp;understand that things can be different. When our imagination is at work we are able to envision possibilities.</span>&nbsp;&nbsp;<span class="toshare">Imagination is an essential part of communication. It inspires our thinking and the way we perceive, engage, produce&nbsp;and interact with the&nbsp;environment, situation or people. We imagine the others through sympathy. That mean to identify with them. When we say&nbsp;“I can imagine how you feel.” Imagination unfolds human perception and experience in unexpected ways.</span></p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Anna Carlgreen, a Swedish artist, fascinated by glass and it’s optical properties demonstrates with her artworks how minimal alterations can have a monumental effect on perception.</p>
+    </div>
+    
+    <img src="./Use a catchy title._files/031.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:114%; margin-left: -35%; position: absolute; width: 35%;">
+
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="perceive"><span class="alter">“Multifaceted glasses can show us things we otherwise would never see or experience.”&nbsp;She makes a very interesting point when talking about her fascination with the&nbsp;kaleidoscope. “The notion that the shape of things could be altered by altering the angle of the frame while looking through the glass, was&nbsp;an amazing discovery.</span> <span class="character">Bold experimentation, producing constellations of forms that are very carefully calculated, reveal completely new aspects of the refractive capabilities of glass.”&nbsp;[17]</span></span> I see the&nbsp;kaleidoscope as a metaphor for a way of observing the&nbsp;world, where the meaning of what we perceive in not declared by the outside, but by the way in which we decide to look at the outside and interact with our tools.</p>
+    </div>
+
+    <img src="./Use a catchy title._files/032.png" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:155%; margin-left: -42%; position: absolute; width: 45%;">
+
+      
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">I found two images at the beginning of my process. I was very fascinated by them and they became main reference points of my research and writing process.&nbsp;The first&nbsp;image (fig.7), right here on the left comes from Museum of Internet. It is interesting for me because it is simply weird and expresses a lot of sense, while being very irrational. Usually the use of the teapot happens according to the rules imposed by it’s design. It is intended to be used in a particular way. We must lift the pot with a hand, position it over the cup and than pour into it. The teapot is the medium for serving tea. It’s&nbsp;well thought form defines the possible ways in which the teapot could be used. But to show one thing means simultaneously to conceal something else. There might be many other ways of serving tea.&nbsp;In the image the “user” of the teapot has engaged in an interaction that&nbsp;does not conform to the conventional tea serving&nbsp;practice, while remaining to be functional.</p>
+    </div>
+
+            
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">This  second image (fig.8) impressed me on a more personal level, but it also illustrates great problem solving skills in practice. I personally have a great issue with queuing. I feel bored, anxious, stressed, even sometimes depressed. All of this while I am not able to move back or forth, because I have my own turn, and I must make sure I align with it. When queuing we stand in line. <span class="alter"><span class="participation"><span class="toshare">In this case though, the participants in the queue have managed this horrible practice in an inspiring manner. It serves its purpose, but the action of queuing is reinterpreted by the people that are the active participant in the queue and not defined by the accepted&nbsp; idea, such as that we should stand in line. I can’t help myself to not wonder did someone make it first and the rest followed, or is it a tradition in some societies?</span></span></span>
+</p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="meaning"><span class="alter">To&nbsp;keep an open mind means to be willing to reinterpret former norms and conclusions,&nbsp;and therefore to allow for the exploration&nbsp;of new possibilities.&nbsp;For examole Umberto Eco’s description of the concept of&nbsp;“open-works” in art. <span class="toshare">The intention of opening the work is to generate a much more active attitude in the&nbsp;listeners, viewers, and readers.</span></span> This presents the public with a field of possibilities and leaves to her&nbsp;the decide for an approach.</span></p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="toshare">The preferred games in a culture (traditions, celebrations, arts, etc) reflect the dominant trends, tastes, and ways of thinking, meanwhile educating and training the players on the virtues of the game and the social world. &nbsp;And people confirm them later in their habits and preferences. [18]</span></p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">In Greek language, the terms paideia - the word for education, culture; paidia - the word for play, game, pastime, sport;&nbsp;and paides - the word for children; have the same root. Another term - &nbsp;paidagogia&nbsp;(pedagogy), also coming from the same root, was aimed to encourage learning as a form of play (paidia) which was considered the most effective approach to learning for the free citizens of the society.&nbsp;<span class="participation">We can even go as far as to position a reciprocal relationship between a society and the games it likes to play. Many games do not imply rules,&nbsp;such as playing with locomotives, cars, dolls, puppets and other. These games&nbsp;stimulate improvisation, and are a play for play’s sake. But in this play fiction is becoming a rule of it’s own. The rule of “as if”. [19]</span> People find children to be the&nbsp;ultimate creative explorers because of their constant&nbsp;curiosity and&nbsp;the&nbsp;interest&nbsp;they invest on anything within range. They are delighted by the unknown. The way in which children learn is by playing. <span class="participation">By&nbsp;interacting with&nbsp;their environment children engage in a feedback with the subject of their exploration and learn by the immediate exchange. It could be that their play is so creative because they are not completely aware with the rules of the world. Their play engages them is a free form of interaction with the environment. <span class="toshare">This dialogue with the surrounding is a crucial part for&nbsp;acquiring knowledge. It is the same when communicating&nbsp;because in a dialogue (an interaction) a multitude of view points can be observed, and varying opinions allow for a multitude of views.</span></span></p>
+    </div>
+
+    <img src="./Use a catchy title._files/033.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:200%; margin-left: -20%; position: absolute; width: 20%;">
+    
+    <img src="./Use a catchy title._files/034.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:250%; margin-left: -30%; position: absolute; width: 30%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="participation">As we grow up we learn the rules of communicating. <span class="tospeak"><span class="toshare">We start to interact with each other according to the set of rules that we had to&nbsp;acquire&nbsp;and practice in the context of our cultural surrounding.</span></span> <span class="intermediate"><span class="toshare">We take part in a sort of communication game dictated more or less by the social and educational systems.&nbsp;<span class="toshare">In society the&nbsp;rules of communication and interaction emerge from the cultural and technological context we exist in.&nbsp;But the more we become used to these artificial rules of expression, the less we look for change, the more exposed we are to outside forces and the less we try to&nbsp;engage in&nbsp;immediate interactions.</span></span></span></span></p>
+    </div>
+
+          
+     <img src="./Use a catchy title._files/035.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:300%; margin-left: -35%; position: absolute;width: 35%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">In games cheating is a subversive action.&nbsp;It is defined as finding an easy way out of an unpleasant situation usually by dishonest means. Disobedience against the game where the participants disrupts the rhythm of the game.&nbsp;In this particular context though, I understand it as free expression.&nbsp;In the dictionaries, as well as in society, it is associated with acts of dishonesty and immorality. Nevertheless if&nbsp;the rules provide for an&nbsp;unmoral&nbsp;outcome than the one cheating would, the act of cheating should be justified because&nbsp;“There is no&nbsp;justice&nbsp;in following unjust&nbsp;laws.”&nbsp;[20]</p>
+    </div>
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Some people might find the connection between cheating and creativity bizarre. I&nbsp;relate them in the sense of both being strategies for discovering&nbsp;unconventional&nbsp;means of solving a problem or dealing with a difficult situation.</p>
+    </div>
+     <img src="./Use a catchy title._files/036.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:345%; margin-left: -42%; position: absolute; width: 30%;">
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">If we think about cheating in school. In that context cheating would means two things. That these kids didn’t learn their lessons for an exam and they have found a way out of this situation with a very practical solution. We can always argue if it is bad or not they didn’t learn their textbooks. But we should maybe credit students for the way in which they find solutions to their problems. Some of the examples shown here are impressive for me. I am sure&nbsp;everyone had to come up with cheating techniques at least&nbsp;once in&nbsp;our lifetime. Therefore can all relate to how much creative thought and precision this practice requires.</p>
+    </div>
+
+
+
+     <img src="./Use a catchy title._files/037.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:390%; margin-left: -32%; position: absolute;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="toshare">I relate game to communication are&nbsp;because they are both participatory activities in which we must&nbsp;engage in an active exchange with others, but this exchange is always happening&nbsp;according to the rules of the game. Except when cheating. Cheaters&nbsp;breaks the game.&nbsp;<span class="toshare">What would&nbsp;cheating in communication mean than depends on how we reinterpret the communication tools we have in order to allow a  more truthful and open exchange.</span></span></p>
+    </div>
+
+           
+
+            <img src="./Use a catchy title._files/038.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:435%; margin-left: -42%; position: absolute; width: 30%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="toshare"><span class="hack">There is a lot of subversive potential in computer hacking nowadays for example. When someone takes the central productive techniques of contemporary society and diverts them for a non profitable or illegal uses, which involves sharing, free cooperation, and many times, collective action. [21]</span></span></p>
+    </div>
+
+            
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">An example, although a legal one, is Belingcat. I find it a beautiful example because of two thing. How we can&nbsp;transform the purpose of the digital media we are&nbsp;clustered with and how people invent new practices of sharing, because we know&nbsp;how manipulated mainstream media information is.22  In 2012 Eliot Higgins started&nbsp;a blog&nbsp;under the pseudonym Brown Moses, through which he published his research into video footage&nbsp;of the Syrian Civil War. [22] He looked at footage on the Internet, localised the video clips and examined details of the weapons which were used. <span class="toshare">The community&nbsp;uses open source tools, such as Google maps and social media investigation for citizen journalism. The contributors to the website publish both their case studies and guides to the techniques they use in their process. They also use a tool for fact-checking called Meedan’s Checkdesk, which allows a collaborative and transparent verification of content.</span></p>
+    </div>
+
+            <img src="./Use a catchy title._files/039.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:465%; margin-left: -35%; position: absolute; width: 35%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Hackers’ desire to seek out information and learn how to overcome the obstacles given by the system.&nbsp;<span class="play">It is kind of play-exploration with the ultimate reason of acquiring knowledge about systems or exploit their vulnerabilities.</span>&nbsp;But hacking can also refer to many other disciplines, apart from computer sciences. It can mean many things.&nbsp;To withstand or put up with a difficult situation; to apply a trick, short-cut, skill, or novelty method to something to increase productivity, efficiency or ease; to chop or cut down in a rough manner; etcetera.</p>
+    </div>
+
+    <div class="draggable_references ui-draggable ui-draggable-handle"> 
+           <div class="references">
+            16 Carlgreen, A. (2012) Looking through glass. / 
+            17, 18 Caillois, R. (2001) Man, play and games. /
+            19&nbsp;cheat. (2018, November 26)&nbsp;Wiktionary, The Free Dictionary. Retrieved from https://en.wiktionary.org/w/index.php?title=cheat&amp;oldid=50762750. /
+            20 &nbsp;Snook, T. (2014) Hacking is a Mindset, Not a Skillset: Why civic hacking is key for contemporary creativity. /
+            21 Wikipedia contributors. (2018) Bellingcat. In Wikipedia, The Free Encyclopedia. /
+            Retrieved from https://en.wikipedia.org/w/index.php?title=Bellingcat&amp;oldid=870962728
+            22 &nbsp;Nevejan, K. (2012) Withessing you: On trust and truth in a networked world. /
+
+
+          </div> 
+         </div> 
+
+      <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Creative resistance towards institutions is very common in the context of journalism, activism, civil affairs, especially art, but usually these actions disrupt establishments and allow uncensored information to enter the realm of the public and become part of a discourse.</p>
+    </div>
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Creative resistance towards institutions is very common in the context of journalism, activism, civil affairs, especially art, but usually these actions disrupt establishments and allow uncensored information to enter the realm of the public and become part of a discourse.</p>
+    </div>
+
+     <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">I thought of talking about walls. <span class="intermediate">A wall is a defined as a structure built for&nbsp;defence. From&nbsp;old English&nbsp;- a divider. The wall is meant to divide space or to be a border between the outside and the inside (of a house, for example).&nbsp;Walls are the artificial borders of the world.</span> <span class="alter">They have a very strong political connotation as well. It seems to be a trendy way to brag about power. And that’s how wall get raised to divide people and land and become barriers to communication and social interaction.</span><span class="character"> Nevertheless in the process of their existence the character of walls takes on a different meaning. They become street galleries, where anyone can be an artist and express their creativity in public space.&nbsp;From means of separation, the wall turns into a space for open communication, criticism and personal expression. There are many walls in the world.&nbsp;But&nbsp;maybe there are many&nbsp;more&nbsp;people taking on these walls and opening up public space.</span></p>
+    </div>
+
+     <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">In the history of art there are many movements that try to escape the&nbsp;institutionalisation of art&nbsp;and to create space for free, living art.&nbsp;The Dada and Fluxus artist for example promoted art forms that were outside of the norms&nbsp;imposed by cultural institutions, media production and high art. <span class="character">By&nbsp;engaging in self - defined&nbsp;artistic&nbsp;practices they&nbsp;broadened the&nbsp;understanding of what can be considered as&nbsp;art. Fluxus encouraged a “do-it-yourself”&nbsp;aesthetic. They refused the romantic idea of the artist as an individual with an outstanding gift and aimed not only to make art available to the masses, but wanted to engage them as active participants in it’s production.</span></p>
+    </div>
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Fluxus art discredited the conventional market-driven art world. They have created their own means of expression and production, overcoming the existing codes for the definition of art.&nbsp;Fluxus artists claimed their work to be “anti-art,” in order to emphasize the revolutionary mode of thinking about the practice and process, which involves a&nbsp;broadened&nbsp;understanding on the importance of art in the social&nbsp;context and the importance of immediate interaction.</p>
+    </div>
+
+</div>
+
+<!-- ************************************************ PAGE 4 START ************************************************ -->
+<div id="page4">
+  <div class="headers">
+    <div class="header1"><h1>04</h1></div>
+    <div class="header2"><h2>Conclusion.</h2></div>
+  </div>
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph"><span class="experience"><span class="tospeak">Our experience of others emerges in an inner dialogues in which out personal feelings are related to an external perceived reality and understanding of previous situations.</span></span> <span class="knowledge">Experience is the process of getting knowledge from doing, seeing, or feeling things.</span> If we want to experience the world in a different way we must first start doing, seeing, feeling and thinking differently. The ways in which we interact and thereby create and share meaning are a vehicle for defining our personal and cultural identity. <span class="word">When we express
+            ourselves, we stuff our thought in empty words, we use tools communicate and to distribute
+            information, but that creates a world where human interaction becomes dependent on
+            these tools and therefore limited to them. They have the power to shrink the understanding
+            between us because there is no shared experience.</span></p>
+    </div>
+
+      <img src="./Use a catchy title._files/041.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:20%; margin-left: -40%; position: absolute; width: 35%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">Except for when we cheat the rules and engage in an open dialogue with the people
+            and the world around us. And than imagination and creativity helps us to open spaces for
+            further interaction. <span class="tospeak">Expression unleashes affect. Affect is what touches. Affect as a verb means to influence something.</span> When we express ourselves we influence each other. We share meaning and value. This is how we ourselves create our reality.</p>
+    </div>
+    
+  
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">The rules and structures that are meant to govern our interaction are not absolute
+            and can easily be changed, if we can distance ourselves from the situation so that we can
+            critically observe it. There are ways to use these rules and structures in a way that contributes
+            to our common experience, rather than to dominate it. When people engage and
+            participate new possibilities and spaces emerge. Cooperation is an exchange in which
+            participants benefit from the encounter. When we cooperate we accomplish what we
+            can’t do alone.</p>
+    </div>
+
+   
+
+     <img src="./Use a catchy title._files/043.jpg" id="thing" alt="01" class="draggable ui-draggable ui-draggable-handle" style="margin-top:70%; margin-left: -30%; position: absolute; width: 30%;">
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">When children play, they make arrangements among themselves. They conquest a balance of power in the playground. They invent their own roles and rules to follow. The children play is a voluntary activity that occurs in a space isolated from the rest of life, away from the horizons of reason. They establish their own truth.</p>
+    </div>
+
+    <div class="draggable_text ui-draggable ui-draggable-handle"> 
+            <p class="paragraph">The essence of humanity is the joy of being together. When being together we create trust, meaning, value and truth. We need to open up spaces where we can live
+            together, create and share meaning, imagine and play.</p>
+    </div>
+
+    
+   
+</div>
+
+<!-- ************************************************ PAGE 5 START ************************************************ -->
+<div id="page5">
+  <div class="headers" style="margin-bottom: 10% !important;">
+    <div class="header3"><h3>Colophon</h3></div>
+<!--     <div class="header3"><h3>Colophon</h3></div>
+ -->  </div>
+
+   <div class="containerColophon">  
+            <p class="colophon"> Roslana Yotova / Mentors: Merel  Boers, Matthias Kreutzer, Jan Robert Leegte, Silvio Lorusso, Dirk Vis / Open source typeface by Velvetyne type foundry, France / The Museum of Internet is an online museum for Shit posting. http://museumofinter.net/ / Royal Academy of Art, The Hague / 2019
+   </p></div>
+
+   <!-- <div class="marquee">
+<p>Thesis by Roslana Yotova / Royal Academy of art, The Hague 2018 / Special thanks to Merel Boers, Matthias Kreutzer, Michel Hoogervorst, Jan Robert Leegte, Silvio Lorusso, Dirk Vis. / Open source typeface by Justin Bihan, Velvetyne type foundry, France</p>
+</div> -->
+  
+</div>
+
+
+</div>
+
+<!-- ************************************************END CONTAINER 1 - BODY TEXT******************************************************  -->
+
+
+<!-- ************************************************ START CONTAINER 3 ************************************************ -->
+<div id="container3">
+  <div class="navigation"> <a href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page0" class="navigationText">00 Abstract</a> / <a href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page1" class="navigationText">01 The meaning of meaning.</a> / <a href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page2" class="navigationText">02 Use a catchy title.</a>  / <a href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page3" class="navigationText"> 03 If communication was a game we should all be cheaters.</a> / <a href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page4" class="navigationText">04 Conclusion</a> / <a href="https://kabk.github.io/go-theses-19-rossi-yotova/index.html#page4" class="navigationText">05 Colophon</a> / <a href="https://kabk.github.io/go-theses-19-rossi-yotova/Useacatchytitle.pdf" class="navigationText">&gt; print &lt;</a> </div>
+</div>   
+<!-- ************************************************ END CONTAINER 3 ************************************************ -->
+</div>
+</div>
+
+
+</body></html>
