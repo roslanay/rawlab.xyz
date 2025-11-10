@@ -275,27 +275,29 @@ a:focus {
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	border-bottom: 1px solid #000;
+	/* border-bottom: 1px solid #000; */
 	width: 20%;
     flex-shrink: 0;
+
 }
 
 .block-link.index{
 	width: 33.333%;
     flex-shrink: 0;
 	justify-content: space-between;
-	border-left: .1px solid #000;
-	border-bottom: .1px solid #000;
+	/* border-left: .1px solid #000; */
+	/* border-bottom: .1px solid #000; */
+	background: linear-gradient(-165deg, #80808059, transparent);
 }
 .block-para{
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	border-bottom: 1px solid #000;
+	/* border-bottom: 1px solid #000; */
 	/* padding: 1vw; */
 	margin: 0;
 	width: 100%;
-	padding: 0;
+	padding: 1vw 0;
 }
 .block-para>.proj-expo{
 	padding: 0.5vw 1vw;
@@ -346,7 +348,7 @@ text-align: left;
 
 }
 .proj-title.large>.proj-year{
-font-size: 0.8vw;
+font-size: 0.9vw;
 display: block;
 }
 
@@ -361,6 +363,7 @@ display: block;
 }
 .proj-type{
 	width: 30%;
+	font-size: 0.9vw;
 }
 .proj-type>a{
 	color:blue;
