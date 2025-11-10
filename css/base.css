@@ -287,8 +287,10 @@ a:focus {
 	justify-content: space-between;
 	/* border-left: .1px solid #000; */
 	/* border-bottom: .1px solid #000; */
-	background: linear-gradient(-165deg, #80808059, transparent);
+	background: linear-gradient(-545deg, #a7a7a759, transparent);
 }
+
+
 .block-para{
 	display: flex;
 	font-size: 0.75em;
@@ -298,6 +300,9 @@ a:focus {
 	margin: 0;
 	width: 100%;
 	padding: 1vw 0;
+}
+.block-para.btm{
+	padding:  0;
 }
 .block-para>.proj-expo{
 	padding: 0.5vw 1vw;
@@ -318,7 +323,12 @@ text-align: left;
 
 .block-link:hover{
 	background-color: rgb(236, 236, 236);
+	/* background: linear-gradient(45deg, #a7a7a759, transparent); */
 }
+
+/* .block-link:hover > .proj-title{
+text-decoration:line-through;
+} */
 
 .block-link > span{
 	font-weight: 500;
@@ -373,8 +383,11 @@ display: block;
 	text-decoration: underline;
 }
 .proj-year{
-	width: 10%;
-	text-align: right;
+    width: 33.333%;
+}
+.proj-year.btm{
+    text-align: right;
+	padding: 0.5vw 1vw;
 }
 
 
