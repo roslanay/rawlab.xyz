@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bound in Boxes</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>
+			<span class="back-btn"><a href="index.html">←</a></span>
+			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/bound-boxes-01.png" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/bound-boxes-02.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/bound-boxes-03.gif" alt="Girl in a jacket"></div>
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title large">Bound in Boxes</span> 
+					<span class="proj-type">
+						interactive installation, object recognition			
+					</span> 
+					<span class="proj-expo">
+						Bound in boxes functions as a surveillance system that integrates gallery visitors into the artwork itself. The screen is positioned outside the gallery walls and renders the space transparent while simultaneously extending the boundaries of the gallery outward. The previously private aspect of visitors within the space is now made public. Meanwhile, the surveillance system dynamically interprets both the space and the individuals within it.
+As visitors move through they animate the canvas displayed outside the gallery.
+						
+					</span>
+					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://credobonum.bg/en/projects/" target="_blank" class="block-link">
+					<span class="proj-title">comissioned by</span> 
+					<span class="proj-type">Credo Bonum Foundation & Gallery</span> 
+					<span class="proj-expo">BG</span>
+					<span class="proj-year">2024</span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Credo Box</span> 
+					<span class="proj-expo">Sofia</span>
+					<span class="proj-year"></span>
+				</a>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

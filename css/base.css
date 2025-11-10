@@ -308,9 +308,18 @@ a:focus {
 
 .proj-title{
 	width: 30%;
+	/* font-size: 1.5vw; */
+
+}
+
+.proj-title.large{
+	font-size: 1.5vw;
 }
 .proj-expo{
 	width: 30%;
+}
+.proj-expo img{
+	height: auto;
 }
 .proj-type{
 	width: 30%;
