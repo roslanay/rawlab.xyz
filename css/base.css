@@ -286,8 +286,18 @@ a:focus {
     flex-shrink: 0;
 	justify-content: space-between;
 	/* border-left: .1px solid #000; */
-	/* border-bottom: .1px solid #000; */
-	background: linear-gradient(-545deg, #a7a7a759, transparent);
+	border-bottom: .1px solid #000;
+	/* background: linear-gradient(-545deg, #a7a7a759, transparent); */
+}
+
+.block-link.index::after{
+	content: "";
+	width: .5px;
+	height: 100%;
+	background: black;
+    right: -1vw;
+    position: relative;
+
 }
 
 
@@ -322,13 +332,14 @@ text-align: left;
 }
 
 .block-link:hover{
-	background-color: rgb(236, 236, 236);
+	/* background-color: rgb(236, 236, 236); */
 	/* background: linear-gradient(45deg, #a7a7a759, transparent); */
 }
 
-/* .block-link:hover > .proj-title{
-text-decoration:line-through;
-} */
+.block-link:hover > .proj-title{
+/* text-decoration:line-through; */
+color: blue;
+}
 
 .block-link > span{
 	font-weight: 500;
@@ -379,8 +390,7 @@ display: block;
 	color:blue;
 }
 .proj-type>a:hover{
-	color:blue;
-	text-decoration: underline;
+	text-decoration:underline;
 }
 .proj-year{
     width: 33.333%;

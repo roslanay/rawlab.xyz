@@ -270,19 +270,20 @@ a:focus {
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	/* border-bottom: 1px solid #000; */
+	border-bottom: .5px solid #000;
 }
 .block-para{
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	/* border-bottom: 1px solid #000; */
+	border-bottom: .5px solid #000;
 	padding: 1vw;
 	margin: 0;
-	background: linear-gradient(-545deg, #a7a7a759, transparent);
+	/* background: linear-gradient(-545deg, #a7a7a759, transparent); */
 }
 .block-link:hover{
-	background-color: rgb(236, 236, 236);
+	/* background-color: rgb(236, 236, 236); */
+	text-decoration: underline;
 }
 
 .block-link > span{
@@ -405,13 +406,13 @@ img{
 	  display: none;
   }
   .back-btn{
-	  position: fixed;
-	  top: 1vw;
+	  /* position: fixed; */
+	  /* top: 1vw;
 	  left: var(--swiper-navigation-sides-offset,10px);
 	  z-index: 10;
 	  color: blue;
 	  font-size: 25px;
-	  font-weight: 600;
+	  font-weight: 600; */
   }
 
   .footer{
@@ -472,3 +473,40 @@ img{
   /* .demo-wrapper { height:100vh; width:100vw; position:fixed; top:0%; left:0; opacity: 0.8;}
   .heatmap { width:100%; height:100%;}
    */
+
+   .close-btn {
+	position: relative;
+	display: inline-block;
+	width: 24px;   /* size of the X */
+	height: 24px;
+	cursor: pointer;
+  }
+  
+  .close-btn::before,
+  .close-btn::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 1px;           /* thickness of lines */
+	background-color: #000; /* color of the X */
+	transform-origin: center;
+	transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .close-btn::before {
+	transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  .close-btn::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  
+  /* Optional hover effect */
+  .close-btn:hover::before,
+  .close-btn:hover::after {
+	background-color: blue;
+	transform: translate(-50%, -50%) rotate(0deg);
+  }
+  
