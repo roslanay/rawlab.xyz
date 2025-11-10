@@ -270,15 +270,16 @@ a:focus {
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	border-bottom: 1px solid #000;
+	/* border-bottom: 1px solid #000; */
 }
 .block-para{
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	border-bottom: 1px solid #000;
+	/* border-bottom: 1px solid #000; */
 	padding: 1vw;
 	margin: 0;
+	background: linear-gradient(-165deg, #80808059, transparent);
 }
 .block-link:hover{
 	background-color: rgb(236, 236, 236);
@@ -360,7 +361,7 @@ a:focus {
 	height:90vh;
 	overflow: hidden;
 	display: flex;
-	margin-bottom: 0.7vw;
+	/* margin-bottom: 0.7vw; */
 }
 
 img{
