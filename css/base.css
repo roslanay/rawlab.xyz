@@ -305,7 +305,7 @@ a:focus {
 	display: flex;
 	font-size: 0.75em;
 	padding: 0.5vw 1vw;
-	/* border-bottom: 1px solid #000; */
+	border-bottom: .5px solid #000;
 	/* padding: 1vw; */
 	margin: 0;
 	width: 100%;
