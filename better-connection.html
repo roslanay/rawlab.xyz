@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>A Better Connection</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/inner.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/better-connection.png" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/better-connection-02.gif" alt="Girl in a jacket"></div>					
+						<div class="swiper-slide"><img src="projects/better-connection-03.gif" alt="Girl in a jacket"></div>					
+					</div>
+					<!-- Swiper Navigation -->
+					<!-- <div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div> -->
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title large">A Better Connection</span> 
+					<span class="proj-type">
+						real-time data-driven installation
+					</span> 
+					<span class="proj-expo">
+						
+						A Better Connection is a weather-driven artwork, creatively engaging technology with meteorological data in order to activate climate awareness. It addresses the importance of understanding how long-term weather patterns are changing and it is trying to encourage transformation in our daily life attitude. Webpage accessible on: 
+					</span>
+					<span class="proj-year"><span class="back-btn"><a href="index.html" class="close-btn"></a></span></span>					
+				</p>
+				
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">The Grey Space</span> 
+					<span class="proj-expo">The Hague</span>
+					<span class="proj-year">2021</span>
+				</p>		
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

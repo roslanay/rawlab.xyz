@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Identity 2.0</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/inner.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/identity-01.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><iframe title="vimeo-player" src="https://player.vimeo.com/video/535794267?h=0f67855419" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe></div>
+						<div class="swiper-slide"><img src="projects/identity-02.gif" alt="Girl in a jacket"></div>
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<!-- <div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div> -->
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title large">Identity 2.0</span> 
+					<span class="proj-type">
+						video, object recognition			
+					</span> 
+					<span class="proj-expo">
+						The materiality of the digital image has a liquid nature in that it exist as a binary code and therefore may be easily deconstructed, re-constructed and re-imagined. 
+						<br><br>
+						Social media platforms are capable of analysing every single image that appears on their servers.
+						By using facial recognition algorithms, which are trained to match a human face, they can easily verify a user.
+						<br><br> 
+						Identity 2.0 investigates the methods by which social media platforms are using facial recognition systems to identify human faces in digital images, and the extend of accuracy to which those algorithms are capable of performing.
+					</span>
+					<span class="proj-year"><span class="back-btn"><a href="index.html" class="close-btn"></a></span></span>					
+				</p>
+				
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type"></span> 
+					<span class="proj-expo">The Hague</span>
+					<span class="proj-year">2021</span>
+				</a>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>

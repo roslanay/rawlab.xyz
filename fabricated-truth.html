@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Fabricated Truth & Other Myths</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/inner.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/fabricated-truth-01.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/fabricated-truth-02.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/fabricated-truth-03.png" alt="Girl in a jacket"></div>
+
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<!-- <div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div> -->
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title large">Fabricated Truth & Other Myths</span> 
+					<span class="proj-type">
+						object recognition, machine learning dataset			
+					</span> 
+					<span class="proj-expo">
+						The visual language of an image allows for multiple perspectives and interpretations. Context is crucial in determining the meaning of any vi- sual material that we encounter. As humans, we always seek additional information in order to build and enrich a narrative.
+						<br><br>
+						When context is missing, obscured, lost, or forgotten, the meaning becomes distorted and difficult to determine. In machine learning, the process of extracting “regions of interest” is a mechanism used for se- lecting data arrays, in which only a small portion of the input material is analysed in detail.
+						
+					</span>
+					<span class="proj-year"><span class="back-btn"><a href="index.html" class="close-btn"></a></span></span>					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://www.da-lab.org/en" target="_blank" class="block-link">
+					<span class="proj-title">comissioned by</span> 
+					<span class="proj-type">DA LAB Foundation</span> 
+					<span class="proj-expo">BG</span>
+					<span class="proj-year">2023</span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">Depoo</span> 
+					<span class="proj-expo">Sofia</span>
+					<span class="proj-year">2023</span>
+				</p>	
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title"></span> 
+					<span class="proj-type">TAM</span> 
+					<span class="proj-expo">Veliko Tarnovo</span>
+					<span class="proj-year">2023</span>
+				</p>			
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title"></span> 
+					<span class="proj-type">ReBonkers</span> 
+					<span class="proj-expo">Varna</span>
+					<span class="proj-year">2023</span>
+				</p>	
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title"></span> 
+					<span class="proj-type">Contemporary Art Center</span> 
+					<span class="proj-expo">Burgas</span>
+					<span class="proj-year">2023</span>
+				</p>		
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title"></span> 
+					<span class="proj-type">Beautiful Science Festival</span> 
+					<span class="proj-expo">Varna</span>
+					<span class="proj-year">2023</span>
+				</p>			
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>
