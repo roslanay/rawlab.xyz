@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Decoding Ambiguity</title>
+		<meta name="description" content="A selection of works by Roslana Yotova" />
+		<meta name="keywords" content="portfolio, art & design, digital art, interactive media design, performance, installation" />
+		<meta name="author" content="Roslana Yotova"/>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/inner.css" />
+	</head>
+
+	<body class="demo-3 loading">
+		<main>			
+			<!-- Hero Section -->
+			<div class="slider">
+				<!-- Swiper -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide"><img src="projects/fabricated-truth-04.png" alt="Girl in a jacket"></div>
+
+						<div class="swiper-slide"><img src="projects/fabricated-truth-01.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/fabricated-truth-02.gif" alt="Girl in a jacket"></div>
+						<div class="swiper-slide"><img src="projects/fabricated-truth-03.png" alt="Girl in a jacket"></div>
+					
+					</div>
+					<!-- Swiper Navigation -->
+					<!-- <div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div> -->
+					<div class="swiper-pagination"></div>
+				</div>			
+			</div>
+			
+			<!-- Links Section -->
+			<div class="text-holder">
+
+				<!-- Intro Section -->
+				<p class="block-para">
+					<span class="proj-title large">Decoding Ambiguity</span> 
+					<span class="proj-type">
+						immersive video installation, stable diffusion
+					</span> 
+					<span class="proj-expo">
+						Metaphor is for most people a device of the poetic imagination, but the ordinary conceptual system, in terms of which we both think and communicate, is fundamentally metaphorical in nature. With regard to artificial intelligence, the question arises as to whether it can eventually come to comprehend figurative language in a consistent and non-literal manner.
+						<br><br>
+						Decoding Ambiguity traces the semantic limits inherent in machine learning’s paradigm. The artists make use of natural language processing to produce a sequence of generated poems, which are in turn provided as instructions for a text-to-video generative model.
+						<br><br>
+						The vulnerabilities of computation provoke a reflective examination on the complexity of language, perception, and the (in)ability of artificial intelligence to interpret complex semantic structures.
+						<br><br>
+						The installation invites visitors to enter an immersive space where a series of visual experiments reveal hidden patterns and complex relations, emerging from language and image interplay.
+						
+					</span>
+					<span class="proj-year"><span class="back-btn"><a href="index.html" class="close-btn"></a></span></span>					
+				</p>
+				
+			
+				<!-- Project -->
+				<a href="https://www.da-lab.org/en" target="_blank" class="block-link">
+					<span class="proj-title">comissioned by</span> 
+					<span class="proj-type">KO-OP</span> 
+					<span class="proj-expo">BG</span>
+					<span class="proj-year">2023</span>
+				</a>
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title">presented</span> 
+					<span class="proj-type">FIG.3 Festival of Illustration & Graphics, PUNTA</span> 
+					<span class="proj-expo">Sofia</span>
+					<span class="proj-year">2023</span>
+				</p>	
+				<!-- Project -->
+				<p class="block-para">
+					<span class="proj-title"></span> 
+					<span class="proj-type">BUNA vol.2, Largo Gallery</span> 
+					<span class="proj-expo">Varna</span>
+					<span class="proj-year">2024</span>
+				</p>			
+								
+			</div>
+		</main>
+	</body>
+
+	<!-- Load Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script> 
+		// console.log("test");
+		var swiper = new Swiper(".mySwiper", {
+			slidesPerView: "auto",
+			spaceBetween: 1,
+			observer: true, 
+			observeParents: true,
+			parallax:true,
+			freeMode: true,
+			loop: true,
+			autoplay: {
+				delay: 2000,
+				pauseOnMouseEnter: true,
+			},
+			pagination: {
+				el: ".swiper-pagination",
+				type: "progressbar",
+				clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+
+</html>
