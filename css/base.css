@@ -512,8 +512,9 @@ img{
 		flex-direction: column;
 	}
 	.block-para span{
-		padding: 1vw;
-		align-items: center;
+		padding: 0;
+        align-items: center;
+        display: block;
 	}
 	.block-link{
 		flex-direction: column;
@@ -529,12 +530,29 @@ img{
 	}
 	.proj-type {
 		width: 100%;
+		font-size: 16px;
 	}
 	.proj-expo{
 		width: 100%;
 	}
 	.proj-year{
 		width: 100%;
+	}
+	.block-para>.proj-expo{
+		/* padding: 0.5vw 1vw; */
+		width: 100%;
+	}
+	.block-link.index {
+		width: 100%;
+	}
+	.proj-title.large {
+		font-size: 24px;
+	}
+	.block-para>.proj-title{
+		width: 100%;
+	}
+	.proj-title.large>.proj-year{
+		font-size: 16px;
 	}
   }
 
