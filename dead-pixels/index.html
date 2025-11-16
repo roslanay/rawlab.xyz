@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Full-Screen Webcam Black Pixel Visitors</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html, body {
+  margin:0; padding:0; overflow:hidden;
+  background:#111; color:#eee; font-family:system-ui,Segoe UI,Roboto,Arial;
+  height:100%; width:100%;
+}
+#videoWrap {
+  position:relative; width:100%; height:100%;
+}
+video, canvas {
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+</style>
+</head>
+<body>
+<div id="videoWrap">
+  <video id="video" autoplay playsinline muted></video>
+  <canvas id="output"></canvas>
+</div>
+
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+<script>
+window.addEventListener('load', async () => {
+
+const video = document.getElementById('video');
+const output = document.getElementById('output');
+const outCtx = output.getContext('2d');
+
+const decayCanvas = document.createElement('canvas');
+const decayCtx = decayCanvas.getContext('2d');
+
+let running = false;
+let blackPixels = JSON.parse(localStorage.getItem('blackPixels')||'[]');
+let totalPixelsAdded = parseInt(localStorage.getItem('totalVisitors')||'0');
+
+// Logging helper
+function addLog(message){
+  const logs = JSON.parse(localStorage.getItem('visitorLogs')||'[]');
+  logs.push(`[${new Date().toLocaleTimeString()}] ${message}`);
+  localStorage.setItem('visitorLogs', JSON.stringify(logs));
+}
+
+// Update canvas statistics
+function updateStatistics(){
+  const w = decayCanvas.width;
+  const h = decayCanvas.height;
+  const totalPixels = w * h;
+  const blackPixelCount = blackPixels.length;
+  const remainingPixels = totalPixels - blackPixelCount;
+  const coveragePercent = ((blackPixelCount / totalPixels) * 100).toFixed(2);
+
+  const stats = { totalPixels, blackPixelCount, remainingPixels, coveragePercent };
+  localStorage.setItem('canvasStats', JSON.stringify(stats));
+}
+
+// Load face-api models
+// const MODEL_URL = 'models/';  // path to your local 'models' folder
+// await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
+// await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
+// await faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL);
+const MODEL_URL = 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights';
+await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
+await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
+await faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL);
+
+// Start camera
+try {
+  const stream = await navigator.mediaDevices.getUserMedia({video:true,audio:false});
+  video.srcObject = stream;
+  await video.play();
+
+  function resizeCanvas(){
+    decayCanvas.width = output.width = window.innerWidth;
+    decayCanvas.height = output.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  running = true;
+} catch(e){ console.error(e); return; }
+
+// Add black pixel at coordinates
+function addBlackPixelAt(x, y){
+  blackPixels.push([x, y]);
+  localStorage.setItem('blackPixels', JSON.stringify(blackPixels));
+  totalPixelsAdded++;
+  localStorage.setItem('totalVisitors', totalPixelsAdded);
+  addLog(`Added black pixel #${blackPixels.length} at (${x},${y})`);
+  updateStatistics();
+}
+
+// Apply black pixels to canvas
+function applyBlackPixels(ctx){
+  const w = decayCanvas.width;
+  const h = decayCanvas.height;
+  const img = ctx.getImageData(0,0,w,h);
+  const d = img.data;
+  for(const [x,y] of blackPixels){
+    const i = (y*w + x)*4;
+    d[i]=0; d[i+1]=0; d[i+2]=0;
+  }
+  ctx.putImageData(img,0,0);
+}
+
+// Detection loop: add pixel for every detected face
+async function detectLoop(){
+  if(!running) return;
+  try {
+    const detections = await faceapi.detectAllFaces(video,new faceapi.TinyFaceDetectorOptions())
+      .withFaceLandmarks().withFaceDescriptors();
+
+    for(const det of detections){
+      const box = det.detection.box;
+      const centerX = box.x + box.width/2;
+      const centerY = box.y + box.height/2;
+
+      // Map video coordinates to canvas size
+      const scaleX = decayCanvas.width / video.videoWidth;
+      const scaleY = decayCanvas.height / video.videoHeight;
+      const pixelX = Math.floor(centerX * scaleX);
+      const pixelY = Math.floor(centerY * scaleY);
+
+      addBlackPixelAt(pixelX, pixelY);
+    }
+  } catch(e){ console.error(e); }
+  setTimeout(detectLoop, 400); // adjust for speed
+}
+
+// Solid color background cycle
+const colors = ['#FF0000','#00FF00','#0000FF','#FFFFFF','#FFFF00','#00FFFF','#FF00FF','#111111'];
+let colorIndex = 0;
+let lastColorChange = Date.now();
+const colorInterval = 2000; // 2 seconds per color
+
+function drawBackground(){
+  const now = Date.now();
+  if(now - lastColorChange >= colorInterval){
+    colorIndex = (colorIndex + 1) % colors.length;
+    lastColorChange = now;
+  }
+  outCtx.fillStyle = colors[colorIndex];
+  outCtx.fillRect(0,0,output.width, output.height);
+}
+
+// Render loop
+function renderLoop(){
+  if(!running) return;
+
+  drawBackground();        // fill canvas with current color
+  applyBlackPixels(outCtx); // overlay black pixels
+
+  requestAnimationFrame(renderLoop);
+}
+
+detectLoop();
+renderLoop();
+
+});
+</script>
+</body>
+</html>

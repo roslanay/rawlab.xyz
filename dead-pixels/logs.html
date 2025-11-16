@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>dead pixels</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body {
+  margin:0; padding:20px; 
+  background:#111; color:#eee;
+  font-family:system-ui,Segoe UI,Roboto,Arial;
+}
+h1 { text-align:center; margin-bottom:20px; }
+#logContainer {
+  background: rgba(255,255,255,0.05);
+  border-radius:8px;
+  padding:15px;
+  max-width:90vw;
+  height:80vh;
+  overflow-y:auto;
+  font-family:monospace;
+  line-height:1.4;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+.log-entry { margin-bottom:6px; }
+.log-pixel { color:#00ff00; }        /* green for pixel events */
+.log-info { color:#ccc; font-style:italic; } /* stats or info */
+.log-time { color:#888; font-size:0.9em; margin-right:6px; }
+</style>
+</head>
+<body>
+
+<h1>A dead pixel is a pixel on a liquid crystal display (LCD) that is not functioning properly.</h1>
+<div id="logContainer"></div>
+
+<script>
+// Read logs and stats from localStorage
+function refreshLogs(){
+  const logs = JSON.parse(localStorage.getItem('visitorLogs')||'[]');
+  const stats = JSON.parse(localStorage.getItem('canvasStats')||'{}');
+
+  const container = document.getElementById('logContainer');
+  container.innerHTML = ''; // clear previous
+
+  // Format each log entry
+  logs.forEach(entry => {
+    const logDiv = document.createElement('div');
+    logDiv.className = 'log-entry';
+
+    // Extract pixel info if present
+    const match = entry.match(/Added black pixel #(\d+) at \((\d+),(\d+)\)/);
+    if(match){
+      const num = match[1], x = match[2], y = match[3];
+      logDiv.innerHTML = `<span class="log-time">${entry.slice(0,9)}</span>` + 
+                         `<span class="log-pixel">Pixel #${num} placed at X:${x} Y:${y}</span>`;
+    } else {
+      logDiv.innerHTML = `<span class="log-time">${entry.slice(0,9)}</span>` + 
+                         `<span class="log-info">${entry.slice(10)}</span>`;
+    }
+
+    container.appendChild(logDiv);
+  });
+
+  // Add statistics at the bottom
+  if(stats.totalPixels){
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'log-entry log-info';
+    statsDiv.innerHTML = `<strong>--- Canvas Statistics ---</strong><br>` +
+                         `Total Pixels: ${stats.totalPixels}<br>` +
+                         `Dead Pixels: ${stats.blackPixelCount}<br>` +
+                         `Remaining Pixels: ${stats.remainingPixels}<br>` +
+                         `Coverage: ${stats.coveragePercent}%`;
+    container.appendChild(statsDiv);
+  }
+
+  container.scrollTop = container.scrollHeight;
+}
+
+// Refresh every 500ms
+setInterval(refreshLogs, 500);
+refreshLogs();
+</script>
+</body>
+</html>
