@@ -267,6 +267,7 @@ a:focus {
 }
 .text-holder.index{
     display: flex;
+	height: 100vh;
     overflow: scroll;
     flex-wrap: wrap;
 }
