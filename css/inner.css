@@ -492,6 +492,7 @@ img{
 	width: 24px;   /* size of the X */
 	height: 24px;
 	cursor: pointer;
+	background: #fff;
   }
   
   .close-btn::before,
