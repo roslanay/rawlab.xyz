@@ -37,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const imagesSrc = ["cursor.svg", "cursor2.svg", "cursor3.svg", "cursor4.svg"];
     const images = [];
     let loaded = 0;
-    let stamps = [];
 
-    // Live cursor (only for mouse/pen)
+    let stamps = [];
     let liveCursor = null;
+    let needsNewStamp = false;   // ← New flag
 
     // =========================
     // LOAD IMAGES
@@ -82,13 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return { w, h };
     }
 
-    // =========================
-    // DRAW
-    // =========================
     function drawStamp(stamp) {
       const img = images[stamp.index];
       const { w, h } = getDrawSize(img, stamp.size);
-
       ctx.save();
       ctx.translate(stamp.x, stamp.y);
       ctx.rotate(stamp.rotation);
@@ -102,34 +98,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (liveCursor) drawStamp(liveCursor);
     }
 
-    function createStamp(x, y, isLive = false) {
+    function createStamp(x = 0, y = 0, size = 360) {
       return {
-        x,
-        y,
+        x, y,
         index: Math.floor(Math.random() * images.length),
         rotation: Math.random() * Math.PI * 2,
-        size: isLive ? 360 : (pointer.isTouch() ? 200 : 360) // DEFINE SIZE = CURSOR ; TOUCH ; MARK AFTER CURSOR 
+        size
       };
     }
 
-    function addPermanentStamp(x, y) {
-      const stamp = createStamp(x, y, false);
-      stamps.push(stamp);
-      drawStamp(stamp);
-    }
-
-    function updateLiveCursor(x, y) {
-      if (pointer.isTouch() || !liveCursor) return;
-      
-      liveCursor.x = x;
-      liveCursor.y = y;
-      redrawAll();
-    }
-
-    function randomizeLiveCursor() {
-      if (pointer.isTouch()) return;
-      
-      liveCursor = createStamp(0, 0, true); // position will be updated on move
+    function cloneStamp(stamp) {
+      return { ...stamp };
     }
 
     // =========================
@@ -137,19 +116,32 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
     function init() {
       resizeCanvas();
-      randomizeLiveCursor();   // Set initial cursor
+      if (!pointer.isTouch()) {
+        liveCursor = createStamp(0, 0, 360);
+      }
       redrawAll();
 
       const observer = new ResizeObserver(() => { resizeCanvas(); redrawAll(); });
       observer.observe(document.body);
       window.addEventListener("resize", () => { resizeCanvas(); redrawAll(); });
 
-      // Mouse movement - only update position
+      // Mouse movement
       document.addEventListener("pointermove", (e) => {
-        if (pointer.isTouch()) return;
+        if (pointer.isTouch() || !liveCursor) return;
+
         const x = e.clientX;
         const y = e.clientY + window.scrollY;
-        updateLiveCursor(x, y);
+
+        // Change to new stamp only after movement (after a click)
+        if (needsNewStamp) {
+          liveCursor = createStamp(x, y, 360);
+          needsNewStamp = false;
+        } else {
+          liveCursor.x = x;
+          liveCursor.y = y;
+        }
+
+        redrawAll();
       });
 
       // Click / Tap
@@ -157,18 +149,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const x = e.clientX;
         const y = e.clientY + window.scrollY;
 
-        // Place permanent stamp
-        addPermanentStamp(x, y);
+        if (pointer.isTouch()) {
+          const newStamp = createStamp(x, y, 200);
+          stamps.push(newStamp);
+          drawStamp(newStamp);
+        } else {
+          if (liveCursor) {
+            // Stamp with current cursor
+            liveCursor.x = x;
+            liveCursor.y = y;
+            stamps.push(cloneStamp(liveCursor));
+            drawStamp(liveCursor);
 
-        // Change the "next" cursor style (this is what you wanted)
-        if (!pointer.isTouch()) {
-          randomizeLiveCursor();
-          updateLiveCursor(x, y); // move it to current position immediately
+            // Mark that we need a new stamp on next move
+            needsNewStamp = true;
+          }
         }
       });
     }
 });
-
 //   END STAMPS //
 //   
 // 
