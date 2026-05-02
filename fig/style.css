@@ -1,0 +1,144 @@
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    cursor: none; /* hide default cursor */
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E8E9E4;
+    color:  #E8E9E4;;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+section{
+    position: relative;
+}
+
+#canvas{
+    position: absolute;
+    height: 100%;
+}
+
+#cursor {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+.stamp {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+  
+#text-box-1{
+    position: relative;
+    margin: auto;
+    right: 2%;
+    width: 80%;
+    line-height: 1;
+    bottom: -2vw;
+    text-align: center;
+    top: -5vw;
+    height: auto;
+}
+
+#lineup{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 5vw;
+    position: relative;
+}
+
+#text-box-2{
+    position: relative;
+    width: 43%;
+    bottom: 0;
+    left: 50%;
+}
+
+.text-box-3 {
+    position: relative;
+    bottom: 0;
+    display: inline-grid;
+    vertical-align: bottom;
+    margin-bottom: 1vw;
+    margin-left: 10%;
+}
+
+.highlight {
+    background: #e8e9e5;
+    color: #6D94FF;
+    text-align: center;
+    line-height: 1;
+    font-size: 5vw;
+    text-align: center;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    /* animation: lineHeightChange 3s infinite alternate; */
+}
+
+@keyframes lineHeightChange {
+    0% {
+        line-height: 0;
+        word-spacing: -40px;
+    }
+    100% {
+        line-height: 1;
+        word-spacing: 0px;
+    }
+}
+
+.highlight.s2 {
+    background: #ff6043;
+}
+
+.highlight.s3 {
+    background: #fff;
+    line-height: normal;
+    font-size: 1.5vw;
+    color: #cccccc;
+}
+
+.highlight.caps {
+    text-transform: uppercase;
+    font-size: 1.1vw;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .text-box-3 {
+        vertical-align: top;
+        margin-bottom: 2vw;
+    }
+    
+    .highlight.s1{
+        font-size: 4vw;
+    }
+    .highlight.s3{
+        font-size: 3vw;
+    }
+    
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+/* styles for tablets */
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+/* styles for desktops */
+}
+
+
