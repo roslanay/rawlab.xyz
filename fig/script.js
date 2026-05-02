@@ -72,7 +72,7 @@
   
   document.addEventListener("DOMContentLoaded", () => {
     // =========================
-    // CANVAS (WORLD LAYER)
+    // CANVAS (WORLD SPACE)
     // =========================
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
@@ -122,7 +122,7 @@
     const images = [];
     let loaded = 0;
   
-    imagesSrc.forEach((src, i) => {
+    imagesSrc.forEach((src) => {
       const img = new Image();
       img.src = src;
   
@@ -141,7 +141,7 @@
     let pendingRotation = null;
   
     // =========================
-    // STAMP DATA (WORLD SPACE)
+    // DATA STORE
     // =========================
     const stamps = [];
   
@@ -181,7 +181,7 @@
     }
   
     // =========================
-    // DRAW STAMP (WORLD SPACE)
+    // DRAW STAMP
     // =========================
     function drawStamp(stamp) {
       const img = images[stamp.index];
@@ -216,29 +216,37 @@
       resizeCanvas();
       updateCursor();
   
-      // ===== CURSOR MOVE =====
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-  
-        if (pendingIndex !== null) {
-          currentIndex = pendingIndex;
-          currentRotation = pendingRotation;
-  
-          updateCursor();
-  
-          pendingIndex = null;
-          pendingRotation = null;
-        }
-      });
+      const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
   
       // =========================
-      // CLICK → ADD STAMP
+      // CURSOR LOGIC (DESKTOP ONLY)
+      // =========================
+      if (!isTouchDevice) {
+        document.addEventListener("mousemove", (e) => {
+          cursor.style.left = e.clientX + "px";
+          cursor.style.top = e.clientY + "px";
+  
+          if (pendingIndex !== null) {
+            currentIndex = pendingIndex;
+            currentRotation = pendingRotation;
+  
+            updateCursor();
+  
+            pendingIndex = null;
+            pendingRotation = null;
+          }
+        });
+      } else {
+        cursor.style.display = "none";
+      }
+  
+      // =========================
+      // CLICK / TAP STAMPING
       // =========================
       document.addEventListener("click", (e) => {
         stamps.push({
           x: e.clientX,
-          y: e.clientY + window.scrollY, // 🔥 key for scroll world
+          y: e.clientY + window.scrollY,
           index: currentIndex,
           rotation: currentRotation
         });
