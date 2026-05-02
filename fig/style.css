@@ -47,7 +47,7 @@ section{
 #text-box-1{
     position: relative;
     margin: auto;
-    right: 2%;
+    /* right: 2%; */
     width: 80%;
     line-height: 1;
     bottom: -2vw;
@@ -120,9 +120,12 @@ section{
 
 /* Mobile */
 @media (max-width: 767px) {
+    #text-box-1{
+        width: 90%;
+    }    
     .text-box-3 {
-        vertical-align: top;
         margin-bottom: 2vw;
+        margin-right: 5%;
     }
     
     .highlight.s1{
@@ -130,6 +133,9 @@ section{
     }
     .highlight.s3{
         font-size: 3vw;
+    }
+    #lineup{
+        width: 90%;
     }
     
 }
