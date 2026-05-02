@@ -1,27 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     // =========================
-    // POINTER DETECTION
-    // =========================
-    const pointer = {
-        current: 'mouse',
-        init() {
-            const update = (e) => {
-                this.current = (e.pointerType === 'touch') ? 'touch' : 'mouse';
-            };
-            document.addEventListener('pointerdown', update);
-            document.addEventListener('pointermove', update, { passive: true });
-
-            if (window.matchMedia?.('(pointer: coarse)').matches) {
-                this.current = 'touch';
-            }
-        },
-        isTouch() { return this.current === 'touch'; },
-        isMouse() { return this.current === 'mouse'; }
-    };
-
-    pointer.init();
-
-    // =========================
     // CANVAS SETUP
     // =========================
     const canvas = document.createElement("canvas");
@@ -32,150 +10,280 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.style.left = "0";
     canvas.style.zIndex = "0";
     canvas.style.pointerEvents = "none";
+  
     document.body.appendChild(canvas);
   
-    const imagesSrc = ["cursor.svg", "cursor2.svg", "cursor3.svg", "cursor4.svg"];
+    const imagesSrc = [
+      "cursor.svg",
+      "cursor2.svg",
+      "cursor3.svg",
+      "cursor4.svg"
+    ];
+  
     const images = [];
     let loaded = 0;
-    let stamps = [];
-
-    // Live cursor (only for mouse/pen)
-    let liveCursor = null;
-
+  
+    const stamps = [];
+  
+    // =========================
+    // CURSOR STATE (ghost tool)
+    // =========================
+    const cursor = {
+      x: 0,
+      y: 0,
+      index: 0,
+      rotation: 0,
+      visible: false
+    };
+  
     // =========================
     // LOAD IMAGES
     // =========================
     imagesSrc.forEach((src, i) => {
       const img = new Image();
       img.src = src;
+  
       img.onload = () => {
         loaded++;
         if (loaded === imagesSrc.length) init();
       };
+  
       images[i] = img;
     });
-
+  
     // =========================
     // HELPERS
     // =========================
     function getDocHeight() {
-      return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+      return Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
+      );
     }
-
+  
     function resizeCanvas() {
       const dpr = window.devicePixelRatio || 1;
+  
       const width = window.innerWidth;
       const height = getDocHeight();
-
+  
       canvas.width = width * dpr;
       canvas.height = height * dpr;
+  
       canvas.style.width = width + "px";
       canvas.style.height = height + "px";
+  
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
-
-    function getDrawSize(img, baseSize) {
+  
+    function getDrawSize(img, size) {
       const aspect = img.width / img.height;
-      let w = baseSize, h = baseSize;
-      if (aspect > 1) h = baseSize / aspect;
-      else w = baseSize * aspect;
+  
+      let w, h;
+  
+      if (aspect > 1) {
+        w = size;
+        h = size / aspect;
+      } else {
+        h = size;
+        w = size * aspect;
+      }
+  
       return { w, h };
     }
-
+  
     // =========================
-    // DRAW
+    // DRAW STAMP
     // =========================
     function drawStamp(stamp) {
       const img = images[stamp.index];
-      const { w, h } = getDrawSize(img, stamp.size);
-
+  
+      const { w, h } = getDrawSize(img, 400);
+  
       ctx.save();
       ctx.translate(stamp.x, stamp.y);
       ctx.rotate(stamp.rotation);
+  
       ctx.drawImage(img, -w / 2, -h / 2, w, h);
+  
       ctx.restore();
     }
-
+  
+    // =========================
+    // GHOST CURSOR PREVIEW
+    // =========================
+    function drawCursorPreview() {
+      if (!cursor.visible) return;
+  
+      const img = images[cursor.index];
+  
+      const { w, h } = getDrawSize(img, 400);
+  
+      ctx.save();
+      ctx.globalAlpha = 0.35;
+  
+      ctx.translate(cursor.x, cursor.y);
+      ctx.rotate(cursor.rotation);
+  
+      ctx.drawImage(img, -w / 2, -h / 2, w, h);
+  
+      ctx.restore();
+    }
+  
+    // =========================
+    // REDRAW
+    // =========================
     function redrawAll() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stamps.forEach(drawStamp);
-      if (liveCursor) drawStamp(liveCursor);
+  
+      for (const stamp of stamps) {
+        drawStamp(stamp);
+      }
+  
+      drawCursorPreview();
     }
-
-    function createStamp(x, y, isLive = false) {
-      return {
+  
+    // =========================
+    // ADD STAMP
+    // =========================
+    function addStamp(x, y) {
+      const stamp = {
         x,
         y,
         index: Math.floor(Math.random() * images.length),
-        rotation: Math.random() * Math.PI * 2,
-        size: isLive ? 360 : (pointer.isTouch() ? 200 : 360) // DEFINE SIZE = CURSOR ; TOUCH ; MARK AFTER CURSOR 
+        rotation: Math.random() * Math.PI * 2
       };
-    }
-
-    function addPermanentStamp(x, y) {
-      const stamp = createStamp(x, y, false);
+  
       stamps.push(stamp);
+  
+      // draw only new stamp (fast path)
       drawStamp(stamp);
+      drawCursorPreview();
     }
-
-    function updateLiveCursor(x, y) {
-      if (pointer.isTouch() || !liveCursor) return;
-      
-      liveCursor.x = x;
-      liveCursor.y = y;
-      redrawAll();
-    }
-
-    function randomizeLiveCursor() {
-      if (pointer.isTouch()) return;
-      
-      liveCursor = createStamp(0, 0, true); // position will be updated on move
-    }
-
+  
     // =========================
     // INIT
     // =========================
     function init() {
       resizeCanvas();
-      randomizeLiveCursor();   // Set initial cursor
       redrawAll();
-
-      const observer = new ResizeObserver(() => { resizeCanvas(); redrawAll(); });
-      observer.observe(document.body);
-      window.addEventListener("resize", () => { resizeCanvas(); redrawAll(); });
-
-      // Mouse movement - only update position
-      document.addEventListener("pointermove", (e) => {
-        if (pointer.isTouch()) return;
-        const x = e.clientX;
-        const y = e.clientY + window.scrollY;
-        updateLiveCursor(x, y);
-      });
-
-      // Click / Tap
+  
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
+  
+      // =========================
+      // DESKTOP CURSOR TRACKING
+      // =========================
+      if (!isTouch) {
+        cursor.visible = true;
+  
+        document.addEventListener("mousemove", (e) => {
+          cursor.x = e.clientX;
+          cursor.y = e.clientY + window.scrollY;
+        });
+      }
+  
+      // =========================
+      // INPUT (CLICK / TAP)
+      // =========================
       document.addEventListener("pointerdown", (e) => {
         const x = e.clientX;
         const y = e.clientY + window.scrollY;
-
-        // Place permanent stamp
-        addPermanentStamp(x, y);
-
-        // Change the "next" cursor style (this is what you wanted)
-        if (!pointer.isTouch()) {
-          randomizeLiveCursor();
-          updateLiveCursor(x, y); // move it to current position immediately
-        }
+  
+        addStamp(x, y);
+  
+        // change cursor after each click (desktop feel)
+        cursor.index = Math.floor(Math.random() * images.length);
+        cursor.rotation = Math.random() * Math.PI * 2;
+      });
+  
+      // =========================
+      // KEEP CANVAS IN SYNC WITH PAGE HEIGHT
+      // =========================
+      const observer = new ResizeObserver(() => {
+        resizeCanvas();
+        redrawAll();
+      });
+  
+      observer.observe(document.body);
+  
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        redrawAll();
       });
     }
-});
-
-//   END STAMPS //
+  });
 //   
 // 
 // 
-//   CANVAS INTO SECTION // 
 
-const canvas = document.getElementById('canvas');
+  
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const imagesSrc = [
+    "cursor.svg",
+    "cursor2.svg",
+    "cursor3.svg",
+    "cursor4.svg"
+  ];
+
+  const images = [];
+  let loaded = 0;
+
+  // preload SVGs as images
+  imagesSrc.forEach((src, i) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      loaded++;
+      if (loaded === imagesSrc.length) init();
+    };
+    images.push(img);
+  });
+
+  let currentImage = 0;
+  let currentRotation = Math.random() * 360;
+
+  function init() {
+    document.addEventListener("click", (e) => {
+      const img = images[currentImage];
+
+      const x = e.clientX;
+      const y = e.clientY;
+
+      ctx.save();
+
+      ctx.translate(x, y);
+      ctx.rotate((currentRotation * Math.PI) / 180);
+
+      ctx.drawImage(
+        img,
+        -img.width / 2,
+        -img.height / 2
+      );
+
+      ctx.restore();
+
+      // pick next
+      let next;
+      do {
+        next = Math.floor(Math.random() * images.length);
+      } while (images.length > 1 && next === currentImage);
+
+      currentImage = next;
+      currentRotation = Math.random() * 360;
+    });
+  }
+});
+
+//   CANVAS INTO SECTION
+  const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
         let WIDTH = 0;
