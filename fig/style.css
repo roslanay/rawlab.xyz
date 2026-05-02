@@ -1,3 +1,17 @@
+.word {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .word img {
+    flex: 1;
+    width: 33%;
+    height: auto;
+    display: block;
+    margin: -15%;
+  }
+
 
 *{
     margin:0;

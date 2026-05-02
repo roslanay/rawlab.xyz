@@ -288,3 +288,109 @@ const canvas = document.getElementById('canvas');
 }
 
 window.onload = init;
+
+// 
+
+// 
+// 
+
+// 
+
+const letters = [
+    {
+      el: document.getElementById("letterA"),
+      path: "svg/A/A_"
+    },
+    {
+      el: document.getElementById("letterB"),
+      path: "svg/B/B_"
+    },
+    {
+      el: document.getElementById("letterC"),
+      path: "svg/C/C_"
+    }
+  ];
+  
+  // -------------------------------
+  // 1. SAFE FRAME LOADER
+  // -------------------------------
+  function loadFramesSafely(path, maxProbe = 1000) {
+    return new Promise((resolve) => {
+      const frames = [];
+      let i = 1;
+  
+      function tryLoad() {
+        const img = new Image();
+        const src = `${path}${i}.svg`;
+  
+        img.onload = () => {
+          frames.push(img);
+          i++;
+          tryLoad(); // keep going
+        };
+  
+        img.onerror = () => {
+          // stop silently when first missing file appears
+          resolve(frames);
+        };
+  
+        img.src = src;
+      }
+  
+      tryLoad();
+    });
+  }
+  
+  // -------------------------------
+  // 2. INIT ALL LETTERS
+  // -------------------------------
+  async function init2() {
+    for (const letter of letters) {
+      letter.frames = await loadFramesSafely(letter.path);
+      letter.index = 0;
+  
+      if (letter.frames.length > 0) {
+        letter.el.src = letter.frames[0].src;
+      } else {
+        console.warn("No frames found for", letter.path);
+      }
+    }
+  
+    startAnimation();
+  }
+  
+  // -------------------------------
+  // 3. SEQUENTIAL LOOP ENGINE
+  // -------------------------------
+  function startAnimation() {
+    let currentLetter = 0;
+  
+    const fps = 6;
+    const interval = 1000 / fps;
+    let lastTime = 0;
+  
+    function animate(time) {
+      if (!lastTime) lastTime = time;
+  
+      if (time - lastTime >= interval) {
+        const letter = letters[currentLetter];
+  
+        if (letter.frames && letter.frames.length > 0) {
+          letter.index = (letter.index + 1) % letter.frames.length;
+          letter.el.src = letter.frames[letter.index].src;
+        }
+  
+        // move to next letter (A → B → C → loop)
+        currentLetter = (currentLetter + 1) % letters.length;
+  
+        lastTime = time;
+      }
+  
+      requestAnimationFrame(animate);
+    }
+  
+    requestAnimationFrame(animate);
+  }
+  
+  // start everything
+  init2();
