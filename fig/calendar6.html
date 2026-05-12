@@ -197,84 +197,103 @@
       <div class="weekday">Sat</div>
     </div>
 
-    <div class="calendar-grid" id="calendarGrid"></div>
+    <div class="calendar-grid" id="calendarGrid">
+      <!-- Row 0 -->
+      <div style="visibility: hidden;"></div>
+      <div style="visibility: hidden;"></div>
+      <div style="visibility: hidden;"></div>
+      <div style="visibility: hidden;"></div>
+      <div style="visibility: hidden;"></div>
+      
+      <div class="day" data-row="0" data-col="5">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>05</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 5</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+      
+    
+      <div class="day" data-row="0" data-col="6">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>06</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Long-form writing and layouts.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 6</h1>
+        </div>
+      </div>
+    
+      <!-- Row 1 -->
+      <div class="day" data-row="1" data-col="0">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>07</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Gallery planning and edits.</div>
+        <div class="expanded-content"><h1>June 7</h1></div>
+      </div>
+      
+      <div class="day" data-row="1" data-col="1">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>08</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 8</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+
+      <div class="day" data-row="1" data-col="2">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>09</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 9</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+      <!-- Continue for all other days following the row/col pattern... -->
+      <!-- Ensure you match the data-row (0-2) and data-col (0-6) -->
+    </div>
+    
   </div>
 
 <script>
-const june2026 = [
-  [null, null, null, null, null, 5, 6],
-  [7, 8, 9, 10, 11, 12, 13],
-  [14, null, null, null, null, null, null]
-];
-
-const previews = [
-  'Archival notes and sketches.',
-  'Long-form writing and layouts.',
-  'Gallery planning and edits.',
-  'Material studies and references.',
-  'Prototype interactions and flows.',
-  'Publishing drafts and revisions.'
-];
-
 const grid = document.getElementById('calendarGrid');
+const days = document.querySelectorAll('.day');
 let expanded = null;
 
-june2026.forEach((week, rowIndex) => {
-  week.forEach((day, colIndex) => {
-    const cell = document.createElement('div');
+// Initialize listeners for the hardcoded HTML
+days.forEach((cell) => {
+  // Click to open
+  cell.addEventListener('click', (e) => {
+    if (e.target.classList.contains('close-btn')) return;
+    openDay(cell);
+  });
 
-    if (!day) {
-      cell.style.visibility = 'hidden';
-      grid.appendChild(cell);
-      return;
-    }
-
-    cell.className = 'day';
-    cell.dataset.row = rowIndex;
-    cell.dataset.col = colIndex;
-
-    cell.innerHTML = `
-      <button class="close-btn">×</button>
-
-      <div class="date-label">
-        <span>${String(day).padStart(2, '0')}</span>
-        <span class="mini-note">June 2026</span>
-      </div>
-
-      <div class="day-preview">
-        ${previews[day % previews.length]}
-      </div>
-
-      <div class="expanded-content">
-        <div class="mini-note">Expanded Daily View</div>
-        <h1>June ${day}</h1>
-      </div>
-    `;
-
-    cell.addEventListener('click', (e) => {
-      if (e.target.classList.contains('close-btn')) return;
-      openDay(cell);
-    });
-
-    cell.querySelector('.close-btn').addEventListener('click', (e) => {
+  // Click close button
+  const closeBtn = cell.querySelector('.close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       closeDay();
     });
-
-    grid.appendChild(cell);
-  });
+  }
 });
 
 function openDay(cell) {
   if (expanded === cell) return;
-
   expanded = cell;
 
   const row = Number(cell.dataset.row);
   const col = Number(cell.dataset.col);
 
-  const rows = ['1fr','1fr','1fr'];
-  const cols = ['1fr','1fr','1fr','1fr','1fr','1fr','1fr'];
+  const rows = ['1fr', '1fr', '1fr'];
+  const cols = ['1fr', '1fr', '1fr', '1fr', '1fr', '1fr', '1fr'];
 
   rows[row] = '12fr';
   cols[col] = '12fr';
@@ -282,39 +301,31 @@ function openDay(cell) {
   grid.style.gridTemplateRows = rows.join(' ');
   grid.style.gridTemplateColumns = cols.join(' ');
 
-  // expand header column too
   const headerCols = Array(7).fill('1fr');
   headerCols[col] = '12fr';
-
-  document.querySelector('.calendar-header').style.gridTemplateColumns =
-    headerCols.join(' ');
+  document.querySelector('.calendar-header').style.gridTemplateColumns = headerCols.join(' ');
 
   document.querySelectorAll('.day').forEach(d => {
     d.classList.remove('expanded');
     d.classList.add('passive');
   });
 
-  document.querySelectorAll('.weekday').forEach(w => {
-    w.classList.remove('expanded');
-  });
-
   cell.classList.add('expanded');
   cell.classList.remove('passive');
 
-  const weekday = document.querySelectorAll('.weekday')[col];
-  if (weekday) weekday.classList.add('expanded');
+  const weekdays = document.querySelectorAll('.weekday');
+  weekdays.forEach(w => w.classList.remove('expanded'));
+  if (weekdays[col]) weekdays[col].classList.add('expanded');
 }
 
 function closeDay() {
   expanded = null;
-
   grid.style.gridTemplateRows = 'repeat(3, 1fr)';
   grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
-  document.querySelector('.calendar-header').style.gridTemplateColumns =
-    'repeat(7, 1fr)';
+  document.querySelector('.calendar-header').style.gridTemplateColumns = 'repeat(7, 1fr)';
 
   document.querySelectorAll('.day').forEach(d => {
-    d.classList.remove('expanded','passive');
+    d.classList.remove('expanded', 'passive');
   });
 
   document.querySelectorAll('.weekday').forEach(w => {
@@ -322,6 +333,7 @@ function closeDay() {
   });
 }
 
+// Global click to close
 document.addEventListener('click', (e) => {
   if (!expanded) return;
   if (e.target.closest('.day')) return;
