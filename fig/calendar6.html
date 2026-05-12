@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>June 2026 Interactive Calendar</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* --gap: 10px;
+      --bg: #f2efe8;
+      --card: #fffdf8;
+      --line: #1f1f1f;
+      --muted: #777;
+      --accent: #161616; */
+      --transition: 1100ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    body {
+      font-family: Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .calendar-shell {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: var(--gap);
+    }
+
+    .calendar-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: var(--gap);
+      height: 70px;
+      flex-shrink: 0;
+      transition:
+        grid-template-columns var(--transition),
+        gap 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: grid-template-columns;
+    }
+
+    .weekday {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: transform 500ms ease, background 500ms ease;
+    }
+
+    .weekday.expanded {
+      transform: scale(1.05);
+      background: rgba(0,0,0,0.08);
+      font-weight: 600;
+    }
+
+    .calendar-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: var(--gap);
+      transition:
+        grid-template-columns var(--transition),
+        grid-template-rows var(--transition),
+        gap 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: grid-template-columns, grid-template-rows;
+      min-height: 0;
+    }
+
+    .day {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        border-radius var(--transition),
+        transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 500ms ease,
+        opacity 500ms ease,
+        filter 700ms ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: #ffffff;
+    }
+
+    .day.expanded {
+      border-radius: 40px;
+      transform: scale(1.015);
+      z-index: 10;
+      cursor: default;
+    }
+
+    .day.passive {
+      opacity: 0.88;
+      transform: scale(0.985);
+      filter: saturate(0.9);
+    }
+
+    .date-label {
+      padding: 16px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mini-note {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .day-preview {
+      padding: 0 16px 16px;
+      margin-top: auto;
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 22ch;
+    }
+
+    .expanded-content {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(40px);
+      transition: all 700ms ease;
+      padding: 0 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+      overflow: auto;
+    }
+
+    .day.expanded .expanded-content {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+
+    .day.expanded .close-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calendar-shell">
+
+    <div class="calendar-header">
+      <div class="weekday">Sun</div>
+      <div class="weekday">Mon</div>
+      <div class="weekday">Tue</div>
+      <div class="weekday">Wed</div>
+      <div class="weekday">Thu</div>
+      <div class="weekday">Fri</div>
+      <div class="weekday">Sat</div>
+    </div>
+
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+
+<script>
+const june2026 = [
+  [null, null, null, null, null, 5, 6],
+  [7, 8, 9, 10, 11, 12, 13],
+  [14, null, null, null, null, null, null]
+];
+
+const previews = [
+  'Archival notes and sketches.',
+  'Long-form writing and layouts.',
+  'Gallery planning and edits.',
+  'Material studies and references.',
+  'Prototype interactions and flows.',
+  'Publishing drafts and revisions.'
+];
+
+const grid = document.getElementById('calendarGrid');
+let expanded = null;
+
+june2026.forEach((week, rowIndex) => {
+  week.forEach((day, colIndex) => {
+    const cell = document.createElement('div');
+
+    if (!day) {
+      cell.style.visibility = 'hidden';
+      grid.appendChild(cell);
+      return;
+    }
+
+    cell.className = 'day';
+    cell.dataset.row = rowIndex;
+    cell.dataset.col = colIndex;
+
+    cell.innerHTML = `
+      <button class="close-btn">×</button>
+
+      <div class="date-label">
+        <span>${String(day).padStart(2, '0')}</span>
+        <span class="mini-note">June 2026</span>
+      </div>
+
+      <div class="day-preview">
+        ${previews[day % previews.length]}
+      </div>
+
+      <div class="expanded-content">
+        <div class="mini-note">Expanded Daily View</div>
+        <h1>June ${day}</h1>
+      </div>
+    `;
+
+    cell.addEventListener('click', (e) => {
+      if (e.target.classList.contains('close-btn')) return;
+      openDay(cell);
+    });
+
+    cell.querySelector('.close-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDay();
+    });
+
+    grid.appendChild(cell);
+  });
+});
+
+function openDay(cell) {
+  if (expanded === cell) return;
+
+  expanded = cell;
+
+  const row = Number(cell.dataset.row);
+  const col = Number(cell.dataset.col);
+
+  const rows = ['1fr','1fr','1fr'];
+  const cols = ['1fr','1fr','1fr','1fr','1fr','1fr','1fr'];
+
+  rows[row] = '12fr';
+  cols[col] = '12fr';
+
+  grid.style.gridTemplateRows = rows.join(' ');
+  grid.style.gridTemplateColumns = cols.join(' ');
+
+  // expand header column too
+  const headerCols = Array(7).fill('1fr');
+  headerCols[col] = '12fr';
+
+  document.querySelector('.calendar-header').style.gridTemplateColumns =
+    headerCols.join(' ');
+
+  document.querySelectorAll('.day').forEach(d => {
+    d.classList.remove('expanded');
+    d.classList.add('passive');
+  });
+
+  document.querySelectorAll('.weekday').forEach(w => {
+    w.classList.remove('expanded');
+  });
+
+  cell.classList.add('expanded');
+  cell.classList.remove('passive');
+
+  const weekday = document.querySelectorAll('.weekday')[col];
+  if (weekday) weekday.classList.add('expanded');
+}
+
+function closeDay() {
+  expanded = null;
+
+  grid.style.gridTemplateRows = 'repeat(3, 1fr)';
+  grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+  document.querySelector('.calendar-header').style.gridTemplateColumns =
+    'repeat(7, 1fr)';
+
+  document.querySelectorAll('.day').forEach(d => {
+    d.classList.remove('expanded','passive');
+  });
+
+  document.querySelectorAll('.weekday').forEach(w => {
+    w.classList.remove('expanded');
+  });
+}
+
+document.addEventListener('click', (e) => {
+  if (!expanded) return;
+  if (e.target.closest('.day')) return;
+  closeDay();
+});
+</script>
+
+</body>
+</html>

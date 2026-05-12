@@ -1,4 +1,3 @@
-
 //   
 // 
 // 
@@ -19,7 +18,7 @@ const canvas = document.getElementById('canvas');
             shearY: 240,               // vertical strength — increased for clear effect
             wave: 55,
             minWidth: 230,
-            edgeJitter: 170
+            edgeJitter: 17
         };
 
         function resize() {
@@ -124,11 +123,21 @@ window.onload = init;
 //
 
 //   LETTERS SHUFFLE  // 
+
+// 1. Define the base path from WordPress
+const themePath = "<?php echo get_template_directory_uri(); ?>/assets/images/";
+
+// 2. Prepend the themePath to each letter's specific folder path
 const letters = [
-  { el: document.getElementById("letterA"), path: "svg/A/A_" },
-  { el: document.getElementById("letterB"), path: "svg/B/B_" },
-  { el: document.getElementById("letterC"), path: "svg/C/C_" }
+  { el: document.getElementById("letterA"), path: themePath + "svg/A/A_" },
+  { el: document.getElementById("letterB"), path: themePath + "svg/B/B_" },
+  { el: document.getElementById("letterC"), path: themePath + "svg/C/C_" }
 ];
+// const letters = [
+//   { el: document.getElementById("letterA"), path: "svg/A/A_" },
+//   { el: document.getElementById("letterB"), path: "svg/B/B_" },
+//   { el: document.getElementById("letterC"), path: "svg/C/C_" }
+// ];
 
 async function loadFramesSafely(path) {
   const frames = [];
@@ -194,15 +203,15 @@ initLetters();
 // 
 // 
 // 
-// 
-// 
-//  STAMPS CANVAS 
+// STAMPS CANVAS 
 document.addEventListener("DOMContentLoaded", () => {
   // =========================
   // POINTER DETECTION
   // =========================
+
   // Define the base path from PHP right here
-  // const themePath = "<?php echo get_template_directory_uri(); ?>/assets/images/";
+  const themePath = "<?php echo get_template_directory_uri(); ?>/assets/images/";
+
   const pointer = {
       current: 'mouse',
       init() {
@@ -235,13 +244,13 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.style.pointerEvents = "none";
   document.body.appendChild(canvas);
 
-  const imagesSrc = ["cursor.svg", "cursor2.svg", "cursor3.svg", "cursor4.svg"];
-  // const imagesSrc = [
-  //   themePath + "cursor.svg",
-  //   themePath + "cursor2.svg",
-  //   themePath + "cursor3.svg",
-  //   themePath + "cursor4.svg"
-  // ];
+  // const imagesSrc = ["cursor.svg", "cursor2.svg", "cursor3.svg", "cursor4.svg"];
+  const imagesSrc = [
+    themePath + "cursor.svg",
+    themePath + "cursor2.svg",
+    themePath + "cursor3.svg",
+    themePath + "cursor4.svg"
+  ];
   const images = [];
   let loaded = 0;
 

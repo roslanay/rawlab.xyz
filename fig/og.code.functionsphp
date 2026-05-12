@@ -1,0 +1,30 @@
+// === Open Graph Meta Tags ===
+add_action('wp_head', 'fig_custom_opengraph_tags', 5);
+
+function fig_custom_opengraph_tags() {
+    
+    // Default values
+    $og_url         = (is_front_page() || is_home()) ? home_url('/') : get_permalink();
+    $og_title       = (is_front_page() || is_home()) 
+                      ? "FIG.6 – Festival for Illustration & Graphics" 
+                      : get_the_title();
+    
+    // === OG Description (Customize this) ===
+    $og_description = (is_front_page() || is_home()) 
+        ? "FIG. 6: Fabricated Realities – Graphics at the Edge of Belief examines the expanded field of illustration and graphic design today."
+        : (get_the_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 55));
+    
+    $og_image       = "https://fig.bg/wp-content/themes/FIG.6_twentytwentyfive/assets/images/fig-6-og.png";
+    $og_image_alt   = $og_title;
+
+    // Output clean meta tags
+    echo '<meta property="og:type" content="website" />' . "\n";
+    echo '<meta property="og:url" content="' . esc_url($og_url) . '" />' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr($og_title) . '" />' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr($og_description) . '" />' . "\n";
+    echo '<meta property="og:image" content="' . esc_url($og_image) . '" />' . "\n";
+    echo '<meta property="og:image:alt" content="' . esc_attr($og_image_alt) . '" />' . "\n";
+    
+    // Optional: Twitter Card
+    echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
+}
