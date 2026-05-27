@@ -13,9 +13,9 @@
     }
 
     :root {
-      --gap: 10px;
+      /* --gap: 10px; */
       --bg: #f2efe8;
-      --card: #fffdf8;
+      --card: #fff;
       --line: #1f1f1f;
       --muted: #777;
       --accent: #161616;
@@ -24,8 +24,14 @@
 
     body {
       font-family: Inter, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      overflow: hidden;
+      /* background: var(--bg); */
+      overflow: scroll;
+    }
+
+    .spageti{
+      text-transform: uppercase;
+      letter-spacing: -16%;
+      font-weight: bold;
     }
 
     .calendar-shell {
@@ -34,13 +40,14 @@
       display: flex;
       flex-direction: column;
       padding: 12px;
-      gap: var(--gap);
+      /* gap: var(--gap); */
+      gap: 0;
     }
 
     .calendar-header {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: var(--gap);
+      /* gap: var(--gap); */
       height: 70px;
       flex-shrink: 0;
       transition:
@@ -56,16 +63,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      /* font-size: 0.85rem; */
+      /* letter-spacing: 0.14em; */
+      /* text-transform: uppercase; */
       transition: transform 500ms ease, background 500ms ease;
+      font-size: 1em;
     }
 
     .weekday.expanded {
       transform: scale(1.05);
       background: rgba(0,0,0,0.08);
       font-weight: 600;
+      font-size: 4em;
     }
 
     .calendar-grid {
@@ -149,7 +158,7 @@
       padding: 0 24px 28px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      /* gap: 20px; */
       flex: 1;
       overflow: auto;
     }
@@ -188,13 +197,13 @@
   <div class="calendar-shell">
 
     <div class="calendar-header">
-      <div class="weekday">Sun</div>
-      <div class="weekday">Mon</div>
-      <div class="weekday">Tue</div>
-      <div class="weekday">Wed</div>
-      <div class="weekday">Thu</div>
-      <div class="weekday">Fri</div>
-      <div class="weekday">Sat</div>
+      <div class="weekday"><strong class="spageti">SUN</strong></div>
+      <div class="weekday"><strong class="spageti">MON</strong></div>
+      <div class="weekday"><strong class="spageti">TUES</strong></div>
+      <div class="weekday"><strong class="spageti">WED</strong></div>
+      <div class="weekday"><strong class="spageti">THU</strong></div>
+      <div class="weekday"><strong class="spageti">FRIIIIIIIIIII</strong></div>
+      <div class="weekday"><strong class="spageti">SAT</strong></div>
     </div>
 
     <div class="calendar-grid" id="calendarGrid">
@@ -204,7 +213,8 @@
       <div style="visibility: hidden;"></div>
       <div style="visibility: hidden;"></div>
       <div style="visibility: hidden;"></div>
-      
+
+      <!-- 5th -->
       <div class="day" data-row="0" data-col="5">
         <button class="close-btn">×</button>
         <div class="date-label"><span>05</span><span class="mini-note">June 2026</span></div>
@@ -216,7 +226,7 @@
         </div>
       </div>
       
-    
+ <!-- 6th -->
       <div class="day" data-row="0" data-col="6">
         <button class="close-btn">×</button>
         <div class="date-label"><span>06</span><span class="mini-note">June 2026</span></div>
@@ -227,14 +237,14 @@
         </div>
       </div>
     
-      <!-- Row 1 -->
+<!-- 7th -->
       <div class="day" data-row="1" data-col="0">
         <button class="close-btn">×</button>
         <div class="date-label"><span>07</span><span class="mini-note">June 2026</span></div>
         <div class="day-preview">Gallery planning and edits.</div>
         <div class="expanded-content"><h1>June 7</h1></div>
       </div>
-      
+<!-- 8th -->
       <div class="day" data-row="1" data-col="1">
         <button class="close-btn">×</button>
         <div class="date-label"><span>08</span><span class="mini-note">June 2026</span></div>
@@ -245,7 +255,7 @@
           <p>Add your program details here.</p>
         </div>
       </div>
-
+<!-- 9th -->
       <div class="day" data-row="1" data-col="2">
         <button class="close-btn">×</button>
         <div class="date-label"><span>09</span><span class="mini-note">June 2026</span></div>
@@ -256,6 +266,63 @@
           <p>Add your program details here.</p>
         </div>
       </div>
+
+<!-- 10th -->
+      <div class="day" data-row="1" data-col="3">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>10</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 10</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+<!-- 11th -->
+      <div class="day" data-row="1" data-col="4">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>11</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 11</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+<!-- 12th -->
+      <div class="day" data-row="1" data-col="5">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>12</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 12</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+<!-- 13th -->
+      <div class="day" data-row="1" data-col="6">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>13</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 13</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+<!-- 14th -->
+      <div class="day" data-row="2" data-col="0">
+        <button class="close-btn">×</button>
+        <div class="date-label"><span>14</span><span class="mini-note">June 2026</span></div>
+        <div class="day-preview">Archival notes and sketches.</div>
+        <div class="expanded-content">
+          <div class="mini-note">Expanded Daily View</div>
+          <h1>June 14</h1>
+          <p>Add your program details here.</p>
+        </div>
+      </div>
+
       <!-- Continue for all other days following the row/col pattern... -->
       <!-- Ensure you match the data-row (0-2) and data-col (0-6) -->
     </div>

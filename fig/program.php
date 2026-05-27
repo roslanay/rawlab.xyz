@@ -1,0 +1,391 @@
+
+<?php get_header(); ?>
+
+<main>
+<style>
+    :root {
+      /* --gap: 10px; */
+      --bg: #f2efe8;
+      --card: #fff;
+      --line: #1f1f1f;
+      --muted: #777;
+      --accent: #161616;
+      --transition: 1100ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .calendar-shell {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      /* gap: var(--gap); */
+      gap: 0;
+    }
+
+    .calendar-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      /* gap: var(--gap); */
+      height: 70px;
+      flex-shrink: 0;
+      transition:
+        grid-template-columns var(--transition),
+        gap 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: grid-template-columns;
+    }
+
+    .weekday {
+      border: 1px solid var(--line);
+      /* border-radius: 18px; */
+      background: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* font-size: 0.85rem; */
+      /* letter-spacing: 0.14em; */
+      /* text-transform: uppercase; */
+      transition: transform 500ms ease, background 500ms ease;
+      font-size: 1em;
+    }
+
+    .weekday.expanded {
+      transform: scale(1.05);
+      background: rgba(0,0,0,0.08);
+      font-weight: 600;
+      font-size: 4em;
+    }
+
+    .calendar-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: var(--gap);
+      transition:
+        grid-template-columns var(--transition),
+        grid-template-rows var(--transition),
+        gap 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: grid-template-columns, grid-template-rows;
+      min-height: 0;
+    }
+
+    .day {
+      position: relative;
+      border: 1px solid var(--line);
+      /* border-radius: 24px; */
+      background: var(--card);
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        border-radius var(--transition),
+        transform 900ms cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 500ms ease,
+        opacity 500ms ease,
+        filter 700ms ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: #ffffff;
+    }
+
+    .day.expanded {
+      /* border-radius: 40px; */
+      transform: scale(1.015);
+      z-index: 10;
+      cursor: default;
+    }
+
+    .day.passive {
+      opacity: 0.88;
+      transform: scale(0.985);
+      filter: saturate(0.9);
+    }
+
+    .date-label {
+      padding: 16px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mini-note {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .day-preview {
+      padding: 0 16px 16px;
+      margin-top: auto;
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 22ch;
+    }
+
+    .expanded-content {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(40px);
+      transition: all 700ms ease;
+      padding: 0 24px 28px;
+      display: flex;
+      flex-direction: column;
+      /* gap: 20px; */
+      flex: 1;
+      overflow: auto;
+    }
+
+    .day.expanded .expanded-content {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+    }
+
+    .day.expanded .close-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+</style>
+
+<section class="calendar-section">
+    <div class="calendar-shell">
+  
+      <div class="calendar-header">
+        <div class="weekday"><strong class="spageti">SUN</strong></div>
+        <div class="weekday"><strong class="spageti">MON</strong></div>
+        <div class="weekday"><strong class="spageti">TUES</strong></div>
+        <div class="weekday"><strong class="spageti">WED</strong></div>
+        <div class="weekday"><strong class="spageti">THU</strong></div>
+        <div class="weekday"><strong class="spageti">FRIIIIIIIIIII</strong></div>
+        <div class="weekday"><strong class="spageti">SAT</strong></div>
+      </div>
+  
+      <div class="calendar-grid" id="calendarGrid">
+        <!-- Row 0 -->
+        <div style="visibility: hidden;"></div>
+        <div style="visibility: hidden;"></div>
+        <div style="visibility: hidden;"></div>
+        <div style="visibility: hidden;"></div>
+        <div style="visibility: hidden;"></div>
+  
+        <!-- 5th -->
+        <div class="day" data-row="0" data-col="5">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>05</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 5</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+        
+   <!-- 6th -->
+        <div class="day" data-row="0" data-col="6">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>06</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Long-form writing and layouts.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 6</h1>
+          </div>
+        </div>
+      
+  <!-- 7th -->
+        <div class="day" data-row="1" data-col="0">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>07</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Gallery planning and edits.</div>
+          <div class="expanded-content"><h1>June 7</h1></div>
+        </div>
+  <!-- 8th -->
+        <div class="day" data-row="1" data-col="1">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>08</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 8</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+  <!-- 9th -->
+        <div class="day" data-row="1" data-col="2">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>09</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 9</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+  
+  <!-- 10th -->
+        <div class="day" data-row="1" data-col="3">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>10</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 10</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+  <!-- 11th -->
+        <div class="day" data-row="1" data-col="4">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>11</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 11</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+  <!-- 12th -->
+        <div class="day" data-row="1" data-col="5">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>12</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 12</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+  <!-- 13th -->
+        <div class="day" data-row="1" data-col="6">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>13</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 13</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+  <!-- 14th -->
+        <div class="day" data-row="2" data-col="0">
+          <button class="close-btn">×</button>
+          <div class="date-label"><span>14</span><span class="mini-note">June 2026</span></div>
+          <div class="day-preview">Archival notes and sketches.</div>
+          <div class="expanded-content">
+            <div class="mini-note">Expanded Daily View</div>
+            <h1>June 14</h1>
+            <p>Add your program details here.</p>
+          </div>
+        </div>
+        <!-- Ensure you match the data-row (0-2) and data-col (0-6) -->
+      </div>
+      
+    </div>
+  </section>
+
+<script>
+const grid = document.getElementById('calendarGrid');
+const days = document.querySelectorAll('.day');
+let expanded = null;
+
+// Initialize listeners for the hardcoded HTML
+days.forEach((cell) => {
+  // Click to open
+  cell.addEventListener('click', (e) => {
+    if (e.target.classList.contains('close-btn')) return;
+    openDay(cell);
+  });
+
+  // Click close button
+  const closeBtn = cell.querySelector('.close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDay();
+    });
+  }
+});
+
+function openDay(cell) {
+  if (expanded === cell) return;
+  expanded = cell;
+
+  const row = Number(cell.dataset.row);
+  const col = Number(cell.dataset.col);
+
+  const rows = ['1fr', '1fr', '1fr'];
+  const cols = ['1fr', '1fr', '1fr', '1fr', '1fr', '1fr', '1fr'];
+
+  rows[row] = '12fr';
+  cols[col] = '12fr';
+
+  grid.style.gridTemplateRows = rows.join(' ');
+  grid.style.gridTemplateColumns = cols.join(' ');
+
+  const headerCols = Array(7).fill('1fr');
+  headerCols[col] = '12fr';
+  document.querySelector('.calendar-header').style.gridTemplateColumns = headerCols.join(' ');
+
+  document.querySelectorAll('.day').forEach(d => {
+    d.classList.remove('expanded');
+    d.classList.add('passive');
+  });
+
+  cell.classList.add('expanded');
+  cell.classList.remove('passive');
+
+  const weekdays = document.querySelectorAll('.weekday');
+  weekdays.forEach(w => w.classList.remove('expanded'));
+  if (weekdays[col]) weekdays[col].classList.add('expanded');
+}
+
+function closeDay() {
+  expanded = null;
+  grid.style.gridTemplateRows = 'repeat(3, 1fr)';
+  grid.style.gridTemplateColumns = 'repeat(7, 1fr)';
+  document.querySelector('.calendar-header').style.gridTemplateColumns = 'repeat(7, 1fr)';
+
+  document.querySelectorAll('.day').forEach(d => {
+    d.classList.remove('expanded', 'passive');
+  });
+
+  document.querySelectorAll('.weekday').forEach(w => {
+    w.classList.remove('expanded');
+  });
+}
+
+// Global click to close
+document.addEventListener('click', (e) => {
+  if (!expanded) return;
+  if (e.target.closest('.day')) return;
+  closeDay();
+});
+</script>
+
+
+
+</main>
+
